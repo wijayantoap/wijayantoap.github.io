@@ -2,8 +2,8 @@
   font-family: "CatCafe";
   src: url("../font/catcafe.medium-webfont.woff") format("woff"),
     url("../font/catcafe.medium-webfont.woff2") format("woff2"),
-    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ url("catcafe.medium.ttf")
-      format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url("../font/catcafe.medium.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
 body {
