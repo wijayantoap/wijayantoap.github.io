@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-  alert("asd");
   // array with texts to type in typewriter
   var dataText = ["Wijayanto Abdurrahman Prawirodirjo"];
 
