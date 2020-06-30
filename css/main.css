@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "CatCafe";
+  src: url("../font/catcafe.medium-webfont.woff") format("woff"),
+    url("../font/catcafe.medium-webfont.woff2") format("woff2"),
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ url("catcafe.medium.ttf")
+      format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+body {
+  font-family: CatCafe, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 5em;
+  color: black;
+  text-transform: uppercase;
+}
+
+span {
+  border-right: 0.05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
