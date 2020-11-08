@@ -1,28 +1,108 @@
-@font-face {
-  font-family: "CatCafe";
-  src: url("../font/catcafe.medium-webfont.woff") format("woff"),
-    url("../font/catcafe.medium-webfont.woff2") format("woff2"),
-    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-      url("../font/catcafe.medium.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  font-family: CatCafe, Arial, Helvetica, sans-serif;
+  background: black;
 }
 
-h1 {
-  font-size: 5em;
-  color: black;
-  text-transform: uppercase;
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
 }
 
-span {
-  border-right: 0.05em solid;
-  animation: caret 1s steps(1) infinite;
+.container section {
+  min-width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
 }
 
-@keyframes caret {
-  50% {
-    border-color: transparent;
+.container section .content {
+  max-width: 800px;
+  padding: 40px;
+  text-align: center;
+}
+
+.container section .content h2 {
+  font-size: 4em;
+  margin-bottom: 0.1em;
+}
+
+.container section .content p {
+  font-size: 1.3em;
+  line-height: 1.4em;
+}
+
+a {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+a:hover {
+  color: white;
+}
+a:active {
+  color: white;
+}
+
+.linkedin {
+  margin-bottom: 0.5em;
+}
+
+span::before {
+  content: "Ideas";
+  animation: animate infinite 6s;
+  letter-spacing: 0.075em;
+  font-weight: 600;
+  display: block;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+    content: "Ideas";
+  }
+
+  12% {
+    opacity: 0;
+  }
+
+  32% {
+    opacity: 1;
+    content: "Design";
+  }
+
+  44% {
+    opacity: 0;
+  }
+
+  64% {
+    opacity: 1;
+    content: "Build";
+  }
+
+  78% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    transform: none !important;
   }
 }
