@@ -32,12 +32,12 @@ body {
 }
 
 .container section .content h2 {
-  font-size: 4em;
+  font-size: 4rem;
   margin-bottom: 0.1em;
 }
 
 .container section .content p {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   line-height: 1.4em;
 }
 
