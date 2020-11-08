@@ -48,7 +48,8 @@ a:visited {
   color: white;
 }
 a:hover {
-  color: white;
+  color: royalblue;
+  transition: 0.3s;
 }
 a:active {
   color: white;
@@ -58,9 +59,11 @@ a:active {
   margin-bottom: 0.5em;
 }
 
+/* words */
+
 span::before {
-  content: "Ideas";
-  animation: animate infinite 6s;
+  content: "i·de·a";
+  animation: animate infinite 10s;
   letter-spacing: 0.075em;
   font-weight: 600;
   display: block;
@@ -69,31 +72,146 @@ span::before {
 @keyframes animate {
   0% {
     opacity: 1;
-    content: "Ideas";
+    content: "i·de·a";
   }
 
-  12% {
+  10% {
     opacity: 0;
   }
 
-  32% {
+  30% {
     opacity: 1;
-    content: "Design";
+    content: "con·cept";
+    color: blueviolet;
   }
 
-  44% {
+  40% {
     opacity: 0;
   }
 
-  64% {
+  55% {
     opacity: 1;
-    content: "Build";
+    content: "de·sign";
+    color: mediumslateblue;
   }
 
-  78% {
+  65% {
+    opacity: 0;
+  }
+
+  85% {
+    opacity: 1;
+    content: "de·vel·op";
+    color: palevioletred;
+  }
+
+  90% {
     opacity: 0;
   }
 }
+
+/* testimony */
+
+.testimony {
+  padding: 0 18px;
+  font-style: italic;
+  font-weight: 600;
+  color: white;
+  background-color: black;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+button {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em 2em;
+  box-shadow: inset 0 0 0 2px #ae69ce;
+  color: white;
+  font-size: inherit;
+  font-weight: 600;
+  position: relative;
+  vertical-align: middle;
+}
+button:hover {
+  cursor: pointer;
+}
+button:focus {
+  outline: 0;
+  background-color: black;
+}
+button::before,
+button::after {
+  box-sizing: inherit;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.draw {
+  -webkit-transition: color 0.25s;
+  transition: color 0.25s;
+}
+.draw::before,
+.draw::after {
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+.draw::before {
+  top: 0;
+  left: 0;
+}
+.draw::after {
+  bottom: 0;
+  right: 0;
+}
+.draw:hover {
+  color: #60daaa;
+}
+.draw:hover::before,
+.draw:hover::after {
+  width: 100%;
+  height: 100%;
+}
+.draw:hover::before {
+  border-top-color: #60daaa;
+  border-right-color: #60daaa;
+  -webkit-transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+  transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+.draw:hover::after {
+  border-bottom-color: #60daaa;
+  border-left-color: #60daaa;
+  -webkit-transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s,
+    height 0.25s ease-out 0.75s;
+  transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s,
+    height 0.25s ease-out 0.75s;
+}
+
+.meet:hover {
+  color: #5139d6;
+}
+.meet::after {
+  top: 0;
+  left: 0;
+}
+.meet:hover::before {
+  border-top-color: #5139d6;
+  border-right-color: #5139d6;
+}
+.meet:hover::after {
+  border-bottom-color: #5139d6;
+  border-left-color: #5139d6;
+  -webkit-transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+  transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}
+
+/* media query */
 
 @media (max-width: 991px) {
   .container {
