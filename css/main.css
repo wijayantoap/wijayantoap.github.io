@@ -35,6 +35,9 @@ body .number h2 {
 body .number hr {
   display: inline-block;
   border-top: 1px solid #f9008e;
+  border-bottom: 0;
+  border-right: 0;
+  border-left: 0;
   width: 100px;
 }
 
