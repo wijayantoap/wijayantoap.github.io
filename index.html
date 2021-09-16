@@ -6,51 +6,139 @@
     <title>Wijayanto Abdurrahman Prawirodirjo</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
   <body>
-    <div class="container" data-0="transform:translateX(0%);" data-1200="transform:translateX(-300%);">
-      <section >
-        <div class="content" data-aos="fade-up"
-        data-aos-offset="200"
-        data-aos-delay="50"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
-        data-aos-mirror="true"
-        data-aos-once="false"
-        data-aos-anchor-placement="top-center">
-          <p>Hey, my name is</p>
-          <h2>Wijayanto Abdurrahman Prawirodirjo</h2>
-          <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank"><i class="fa linkedin" style="font-size: 2rem;">&#xf08c;</i></a>
-          <span> </span>
-          <button class="draw meet">Testimony</button>
-          <div class="testimony">
-            <q>Nice</q>, Random person
+    <div class="number" ><h2 id="asu">wap. <hr class="line"/></h2></div>
+    <div class="container">
+      <section id="wrapper1">
+        <h1>
+          <p href="" class="typewrite" data-period="2000" data-type='[ "Hello.", "olá.", "привет", "你好 .", "Bonjour.", "こんにちは." ]'>
+            <span class="wrap"></span>
+          </p>
+        </h1>
+      </section>
+      <section>
+        <div class="wrapper2">
+          <h2>Who?</h2>
+          <h1>#WijayantoAbdurrahmanPrawirodirjo.</h1>
+          <h3>A rather long one isn't it? <br />
+            Earned a <span>Bachelor of Science in Information Technology</span> in 2018 from <a href="https://www.apu.edu.my/" target="_blank">Asia Pacific University</a>, Malaysia<br />
+              I have around <span>3 years of experience</span> as a developer <br />
+              Currently working as a freelance developer <br />
+              Interested in developing <span>web</span> and <span>mobile apps</span> <br />
+              A Googler <br />
+              Definitely a user of Stackoverflow (Stackoverflower?)<br />
+              Spends time on things outside of engineering, like hobbies, friends, and family <br />
+              I have no preference on tools, framework or languages as long as it gets the job done <br />
+              (Most of my work uses <span>JavaScript</span> + <span>React /(Native)</span> tho) <br />
+              Based in Yogyakarta ATM.
+          </h3>
+        </div>
+      </section>
+      <section>
+        <div class="wrapper3">
+          <h2>Work.</h2>
+          <dl>
+            <dt><li>Codex powered by Telkom Indonesia, Jakarta</li></dt>
+            <dd>2018 - 2020.</dd>
+            <dd>-Developed various web apps to support Telkom DXB's recruitment process</dd>
+            <dt><li>Accelbyte, Yogyakarta</li></dt>
+            <dd>2021 - 2021.</dd>
+            <dd>-Contribute to Plus9 2.0 launch</dd>
+            <dt><li>What do I do now?</li></dt>
+            <dd>2021 - now.</dd>
+            <dd>-Freelance</dd>
+            <dd>-Developing various side projects (mobile and web based)!</dd>
+            <dt><li>What's next?</li></dt>
+            <dd>Looking forward to what the future holds (read as: e-mail me if you have an interesting opportunity ;) )
+            </dd>
+          </dl>
+          <p>PS: Checkout my LinkedIn below for more detailed information</p>
+        </div>
+      </section>
+      <section>
+        <div class="wrapper3">
+          <h2>Contacts.</h2>
+          <h1>Get in <span>touch</span></h1>
+          <h3>
+            wijayanto.a.p@gmail.com
+          </h3>
+          <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <div>
+          <a href="https://github.com/wijayantoap" target="_blank"><i class="fab fa-github-square"></i></a>
+          </div>
+          <div>
+            <a href="https://play.google.com/store/apps/dev?id=8601537896599354929" target="_blank"><i class="fab fa-google-play"></i></a>
           </div>
         </div>
       </section>
     </div>
   <script>
-    var coll = document.getElementsByClassName("draw meet");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-}
-  </script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
+    var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    const colors = ["#FFD700", "blue", "red", "yellow" , "orange", "white"]
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        console.log(i)
+        document.getElementById("wrapper1").style.backgroundColor = colors[i]
+        document.getElementById("wrapper1").style.transition = 'background-color 1s linear';
+        }
+
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
   </script>
   </body>
 </html>

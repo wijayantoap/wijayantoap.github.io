@@ -1,0 +1,225 @@
+$primary-color: #141414;
+$accent-color: #f9008e;
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  max-width: 100%;
+  font-family: Rubik, Arial, Helvetica, sans-serif;
+  overflow-y: auto;
+  scroll-snap-type: proximity;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y proximity;
+
+  .number {
+    position: absolute;
+    top: 9vh;
+    left: 10vh;
+    display: inline-block;
+
+    @media (max-width: 980px) {
+      top: 4vh;
+    }
+
+    h2 {
+      color: $accent-color;
+      mix-blend-mode: difference;
+      display: inline-block;
+    }
+
+    hr {
+      display: inline-block;
+      border-top: 1px solid $accent-color;
+      width: 100px;
+    }
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      max-width: 100%;
+      scroll-snap-align: start;
+
+      h2 {
+        font-weight: bold;
+        margin: 0;
+        font-size: 40px;
+      }
+
+      &:nth-of-type(1) {
+        background-color: white;
+        color: black;
+
+        h1 {
+          @media (max-width: 980px) {
+            font-size: 3em;
+          }
+        }
+
+        h1 {
+          @media (min-width: 980px) {
+            font-size: 10em;
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        background-color: $primary-color;
+        color: white;
+
+        flex-direction: column;
+        align-items: flex-start;
+        word-break: break-all;
+
+        h3 {
+          span {
+            color: $accent-color;
+          }
+
+          a {
+            text-decoration: none;
+            color: royalblue;
+            border-bottom: 1px solid $accent-color;
+          }
+        }
+
+        @media (min-width: 980px) {
+          h1 {
+            font-size: 4em;
+          }
+          .wrapper2 {
+            padding-top: 12.5vh;
+            margin-left: 15vw;
+          }
+
+          justify-content: normal;
+        }
+
+        @media (max-width: 980px) {
+          .wrapper2 {
+            box-sizing: border-box;
+            padding: 20px;
+          }
+
+          h1 {
+            font-size: 16px;
+          }
+
+          h3 {
+            font-size: 14px;
+          }
+        }
+      }
+
+      &:nth-of-type(3) {
+        // background-color: #fbdadc;
+        background: rgb(251, 218, 220);
+        background: linear-gradient(
+          0deg,
+          rgba(251, 218, 220, 1) 0%,
+          rgba(251, 218, 251, 1) 100%
+        );
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (min-width: 980px) {
+          h1 {
+            font-size: 4em;
+          }
+
+          .wrapper3 {
+            padding-top: 12.5vh;
+            margin-left: 15vw;
+          }
+
+          dl {
+            font-size: 1.17em;
+          }
+
+          justify-content: normal;
+        }
+
+        @media (max-width: 980px) {
+          .wrapper3 {
+            box-sizing: border-box;
+            padding: 20px;
+          }
+        }
+      }
+
+      &:nth-of-type(4) {
+        background-color: $primary-color;
+        color: white;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        span {
+          border-bottom: 1px solid $accent-color;
+          padding-bottom: 2px;
+        }
+
+        a {
+          color: white;
+          transition: 0.3s;
+          mix-blend-mode: difference;
+
+          i {
+            font-size: 4rem;
+          }
+
+          .fa-google-play {
+            font-size: 3.3rem;
+          }
+        }
+        a:visited {
+          color: white;
+        }
+        a:hover {
+          color: royalblue;
+          transition: 0.3s;
+        }
+        a:active {
+          color: white;
+        }
+
+        .wrapper3 {
+          div {
+            margin-top: 10px;
+          }
+        }
+
+        @media (min-width: 980px) {
+          h1 {
+            font-size: 8em;
+            margin: 0;
+          }
+          .wrapper3 {
+            padding-top: 12.5vh;
+            margin-left: 15vw;
+          }
+
+          justify-content: normal;
+        }
+
+        @media (max-width: 980px) {
+          .wrapper3 {
+            box-sizing: border-box;
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+}
