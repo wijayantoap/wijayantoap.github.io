@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4f1e9" />
+    <meta name="theme-color" content="#f3f0df" />
     <meta
       name="description"
-      content="Portfolio of Wijayanto Abdurrahman Prawirodirjo, a frontend engineer building clear and durable interfaces with React and TypeScript."
+      content="Frontend engineer crafting expressive, durable interfaces with React, TypeScript, and a healthy obsession with motion."
     />
     <meta property="og:title" content="WAP — Frontend Engineer" />
     <meta
       property="og:description"
-      content="Seven years of turning complex products into clear, durable interfaces."
+      content="Code, motion, and seven years of turning complex products into interfaces that feel obvious."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://wijayantoap.github.io/" />
@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="WAP — Frontend Engineer" />
     <meta
       name="twitter:description"
-      content="Seven years of turning complex products into clear, durable interfaces."
+      content="Code, motion, and seven years of turning complex products into interfaces that feel obvious."
     />
     <meta name="twitter:image" content="https://wijayantoap.github.io/assets/images/og-portfolio.jpg" />
     <title>WAP — Frontend Engineer</title>
@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;family=Syne:wght@600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
@@ -41,278 +41,331 @@
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="WAP, back to top">WAP<span>.</span></a>
+      <a class="brand" href="#top" aria-label="WAP, back to top">
+        <span>WAP</span><i>.</i>
+      </a>
       <nav aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="header-email" href="mailto:wijayanto.a.p@gmail.com">Let’s talk</a>
+      <a class="header-status" href="mailto:wijayanto.a.p@gmail.com">
+        <span aria-hidden="true"></span>
+        Available for good conversations
+      </a>
     </header>
 
     <main id="main-content">
-      <section class="hero page-shell" id="top" aria-labelledby="hero-title">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
         <div class="hero-copy">
           <p class="eyebrow reveal">Frontend engineer · Indonesia / Remote</p>
-          <h1 id="hero-title" class="reveal">
-            Building interfaces<br />
-            <span>people understand.</span>
+          <h1 id="hero-title">
+            <span class="hero-line hero-line-one">I make digital</span>
+            <span class="hero-line hero-line-two">things <em>move.</em></span>
           </h1>
-          <p class="hero-intro reveal">
-            I’m Wijayanto. I turn complicated products into clear, durable
-            experiences for web, mobile, and creative tools.
-          </p>
-          <div class="hero-actions reveal">
-            <a class="button" href="#experience">View experience</a>
-            <a class="text-link" href="mailto:wijayanto.a.p@gmail.com">Email me ↗</a>
+          <div class="hero-bottom reveal">
+            <p>
+              I turn complicated products into clear, expressive interfaces—
+              from travel super apps to tools for the world’s design platforms.
+            </p>
+            <a class="arrow-link" href="#experience">
+              Follow the career route
+              <span aria-hidden="true">↘</span>
+            </a>
           </div>
         </div>
 
-        <figure class="hero-portrait reveal">
-          <img
-            src="assets/images/profile.jpg"
-            alt="Wijayanto Abdurrahman Prawirodirjo"
-            width="460"
-            height="460"
-          />
-          <figcaption>
-            <span>Wijayanto A. P.</span>
-            <span>Frontend engineer since 2018</span>
-          </figcaption>
-        </figure>
+        <div class="hero-portrait reveal" data-parallax>
+          <div class="portrait-orbit orbit-one" aria-hidden="true"></div>
+          <div class="portrait-orbit orbit-two" aria-hidden="true"></div>
+          <figure class="portrait-frame">
+            <img
+              src="assets/images/profile.jpg"
+              alt="Wijayanto Abdurrahman Prawirodirjo"
+              width="460"
+              height="460"
+            />
+            <figcaption>
+              <span>W.</span>
+              <span>07°47′S<br />110°22′E</span>
+            </figcaption>
+          </figure>
+          <span class="portrait-tag tag-react">React</span>
+          <span class="portrait-tag tag-typescript">TypeScript</span>
+          <span class="portrait-tag tag-motion">Motion ↗</span>
+        </div>
+
+        <a class="scroll-cue" href="#about">
+          <span>Scroll to travel</span>
+          <i aria-hidden="true"></i>
+        </a>
       </section>
 
-      <div class="skill-strip" aria-label="Core skills">
-        <div class="page-shell">
-          <span>React</span>
-          <span>TypeScript</span>
-          <span>React Native</span>
-          <span>Design systems</span>
-          <span>Product engineering</span>
+      <div class="ticker" aria-label="Core skills">
+        <div class="ticker-track" aria-hidden="true">
+          <span>React</span><i>✦</i><span>TypeScript</span><i>✦</i>
+          <span>Design systems</span><i>✦</i><span>React Native</span><i>✦</i>
+          <span>Plugins</span><i>✦</i><span>Motion</span><i>✦</i>
+          <span>React</span><i>✦</i><span>TypeScript</span><i>✦</i>
+          <span>Design systems</span><i>✦</i><span>React Native</span><i>✦</i>
+          <span>Plugins</span><i>✦</i><span>Motion</span><i>✦</i>
         </div>
       </div>
 
-      <section class="about page-shell section-space" id="about" aria-labelledby="about-title">
-        <div class="section-label reveal">
-          <span>01</span>
-          <span>About</span>
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="section-kicker reveal">
+          <span>01 / About</span>
+          <span>Builder since 2018</span>
         </div>
-        <div class="about-content">
+        <div class="about-lead">
           <h2 id="about-title" class="reveal">
-            Thoughtful code.<br />Clear interactions.<br />Useful products.
+            Somewhere between<br />
+            <span>logic</span> and <span>delight</span><br />
+            is the right interface.
           </h2>
-          <div class="about-copy reveal">
-            <p>
-              I like the part of frontend engineering where product thinking,
-              design craft, and technical systems meet. My work has moved from
-              recruitment platforms to travel super apps and tools used inside
-              creative software.
-            </p>
-            <p>
-              The goal stays the same: make the complex feel simple, then leave
-              behind code a team can confidently keep building on.
-            </p>
-          </div>
-        </div>
-
-        <dl class="facts reveal">
-          <div>
-            <dt>7+ years</dt>
-            <dd>Building production interfaces</dd>
-          </div>
-          <div>
-            <dt>Web + mobile</dt>
-            <dd>Across product and platform teams</dd>
-          </div>
-          <div>
-            <dt>Current focus</dt>
-            <dd>Plugins for creative tools</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="experience section-space" id="experience" aria-labelledby="experience-title">
-        <div class="page-shell">
-          <div class="section-label reveal">
-            <span>02</span>
-            <span>Experience</span>
-          </div>
-          <div class="experience-heading reveal">
-            <h2 id="experience-title">A career spent making complex products easier to use.</h2>
-            <p>From Jakarta and Kuala Lumpur to remote teams around the world.</p>
-          </div>
-
-          <div class="experience-list">
-            <article class="experience-item reveal">
-              <div class="experience-date">
-                <time datetime="2024-09">Sep 2024 — Present</time>
-                <span>Indonesia · Remote</span>
-              </div>
-              <div class="company-mark company-mark-lottie">
-                <img src="assets/images/lottiefiles.png" alt="LottieFiles logo" width="256" height="256" />
-              </div>
-              <div class="experience-content">
-                <p class="company-name">LottieFiles · Full-time</p>
-                <h3>Frontend Engineer</h3>
-                <p>
-                  Building and maintaining plugins across multiple design
-                  platforms, specializing in frontend development with React
-                  and TypeScript.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>React</li><li>TypeScript</li><li>Plugins</li><li>Design platforms</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="experience-item reveal">
-              <div class="experience-date">
-                <time datetime="2022-03">Mar 2022 — Aug 2024</time>
-                <span>Kuala Lumpur, Malaysia</span>
-              </div>
-              <div class="company-mark company-mark-airasia">
-                <img src="assets/images/airasia.webp" alt="AirAsia logo" />
-              </div>
-              <div class="experience-content">
-                <p class="company-name">AirAsia · Full-time</p>
-                <h3>Software Engineer</h3>
-                <p>
-                  Helped develop Food Delivery and Ride experiences inside the
-                  AirAsia SuperApp across web and mobile surfaces.
-                </p>
-                <ul class="experience-points">
-                  <li>Delivered features across several Agile product teams.</li>
-                  <li>Worked with React, React Native, TypeScript, SASS, and JavaScript.</li>
-                </ul>
-                <ul class="tags" aria-label="Technologies">
-                  <li>React Native</li><li>TypeScript</li><li>SASS</li><li>SuperApp</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="experience-item reveal">
-              <div class="experience-date">
-                <time datetime="2021-01">Jan 2021 — Apr 2022</time>
-                <span>Remote</span>
-              </div>
-              <div class="company-mark company-mark-letter" aria-hidden="true">W</div>
-              <div class="experience-content">
-                <p class="company-name">Independent · Freelance</p>
-                <h3>Software Developer</h3>
-                <p>
-                  Built websites and mobile applications while collaborating
-                  remotely with product managers, designers, and developers.
-                </p>
-                <ul class="tags" aria-label="Technologies">
-                  <li>React</li><li>React Native</li><li>JavaScript</li><li>Remote delivery</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="experience-item reveal">
-              <div class="experience-date">
-                <time datetime="2021-03">Mar 2021 — Jun 2021</time>
-                <span>Yogyakarta, Indonesia</span>
-              </div>
-              <div class="company-mark company-mark-accelbyte">
-                <img src="assets/images/accelbyte.svg" alt="AccelByte logo" />
-              </div>
-              <div class="experience-content">
-                <p class="company-name">AccelByte Inc · Full-time</p>
-                <h3>Software Engineer</h3>
-                <p>
-                  Developed and maintained web and desktop products, working
-                  closely with UX and visual designers to translate proposed
-                  designs into reliable interfaces.
-                </p>
-                <ul class="experience-points">
-                  <li>Built with React and Electron across web and desktop.</li>
-                  <li>Reviewed code against shared standards and design guidelines.</li>
-                </ul>
-                <ul class="tags" aria-label="Technologies">
-                  <li>React</li><li>Electron</li><li>TypeScript</li><li>UX collaboration</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="experience-item reveal">
-              <div class="experience-date">
-                <time datetime="2018-12">Dec 2018 — Dec 2020</time>
-                <span>Jakarta, Indonesia</span>
-              </div>
-              <div class="company-mark company-mark-letter company-mark-codex" aria-hidden="true">CX</div>
-              <div class="experience-content">
-                <p class="company-name">CODEX powered by Telkom Indonesia · Full-time</p>
-                <h3>Front End Developer</h3>
-                <p>
-                  Built accessible recruitment products including HR systems,
-                  assessment tools, and a job portal.
-                </p>
-                <ul class="experience-points">
-                  <li>Shipped React interfaces backed by Redux, Jest, RTL, and Apollo GraphQL.</li>
-                  <li>Partnered with backend teams to simplify inefficient API calls.</li>
-                </ul>
-                <ul class="tags" aria-label="Technologies">
-                  <li>React</li><li>Next.js</li><li>GraphQL</li><li>Testing</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="principles page-shell section-space" aria-labelledby="principles-title">
-        <div class="section-label reveal">
-          <span>03</span>
-          <span>Working style</span>
-        </div>
-        <div class="principles-heading reveal">
-          <h2 id="principles-title">Built to last beyond the handoff.</h2>
-          <p>
-            Good product work should still make sense after the demo—to users,
-            engineers, and whoever builds the next feature.
+          <p class="reveal">
+            I’m Wijayanto—a frontend engineer who likes systems that scale and
+            interactions that feel human. My work moves between web, mobile,
+            plugins, and the tiny details that make all four feel coherent.
           </p>
         </div>
-        <div class="principle-grid">
+
+        <div class="signal-grid">
+          <article class="signal-card signal-card-dark reveal">
+            <span class="signal-number">07+</span>
+            <p>Years turning product requirements into shipped interfaces.</p>
+            <div class="signal-wave" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </article>
+          <article class="signal-card signal-card-blue reveal">
+            <span class="signal-label">Now</span>
+            <h3>Design tools,<br />but from the inside.</h3>
+            <p>Building plugins across multiple creative platforms at LottieFiles.</p>
+            <span class="signal-stamp" aria-hidden="true">LF / 24—NOW</span>
+          </article>
+          <article class="signal-card signal-card-paper reveal">
+            <span class="signal-label">Operating mode</span>
+            <ul>
+              <li><span>01</span>Think in systems</li>
+              <li><span>02</span>Prototype the risky bit</li>
+              <li><span>03</span>Polish what people feel</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience section-pad" id="experience" aria-labelledby="experience-title">
+        <div class="section-kicker section-kicker-light reveal">
+          <span>02 / Experience</span>
+          <span>Jakarta → Yogyakarta → Kuala Lumpur → Remote</span>
+        </div>
+        <div class="experience-heading reveal">
+          <p>Selected route</p>
+          <h2 id="experience-title">Five chapters.<br />One moving system.</h2>
+        </div>
+
+        <div class="experience-layout" data-timeline>
+          <aside class="route-map" aria-label="Career timeline progress">
+            <span class="route-label">Career route</span>
+            <div class="route-line" aria-hidden="true">
+              <span class="route-fill"></span>
+              <i class="route-dot"></i>
+            </div>
+            <ol>
+              <li class="is-active" data-route-index="0"><span>2024</span>LottieFiles</li>
+              <li data-route-index="1"><span>2022</span>AirAsia</li>
+              <li data-route-index="2"><span>2021</span>Freelance</li>
+              <li data-route-index="3"><span>2021</span>AccelByte</li>
+              <li data-route-index="4"><span>2018</span>CODEX</li>
+            </ol>
+          </aside>
+
+          <div class="experience-list">
+            <article class="experience-card card-lottie reveal" data-experience="0">
+              <div class="card-topline">
+                <span>SEP 2024 — PRESENT</span>
+                <span>INDONESIA · REMOTE</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-lottie">
+                  <img src="assets/images/lottiefiles.png" alt="LottieFiles logo" width="256" height="256" />
+                </div>
+                <div>
+                  <p class="company-name">LottieFiles · Full-time</p>
+                  <h3>Frontend Engineer</h3>
+                  <p class="card-summary">
+                    Building and maintaining plugins across multiple design
+                    platforms, with React and TypeScript at the center.
+                  </p>
+                </div>
+              </div>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>TypeScript</span><span>Plugins</span><span>Design platforms</span>
+              </div>
+              <span class="card-index" aria-hidden="true">01</span>
+            </article>
+
+            <article class="experience-card card-airasia reveal" data-experience="1">
+              <div class="card-topline">
+                <span>MAR 2022 — AUG 2024</span>
+                <span>KUALA LUMPUR</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-airasia">
+                  <img src="assets/images/airasia.webp" alt="AirAsia logo" />
+                </div>
+                <div>
+                  <p class="company-name">AirAsia · Full-time</p>
+                  <h3>Software Engineer</h3>
+                  <p class="card-summary">
+                    Helped ship Food Delivery and Ride experiences inside the
+                    AirAsia SuperApp across web and mobile surfaces.
+                  </p>
+                </div>
+              </div>
+              <ul class="impact-list">
+                <li>Delivered features across several Agile product teams.</li>
+                <li>Worked across React, React Native, TypeScript, SASS, and JavaScript.</li>
+              </ul>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React Native</span><span>TypeScript</span><span>SASS</span><span>SuperApp</span>
+              </div>
+              <span class="card-index" aria-hidden="true">02</span>
+            </article>
+
+            <article class="experience-card card-freelance reveal" data-experience="2">
+              <div class="card-topline">
+                <span>JAN 2021 — APR 2022</span>
+                <span>REMOTE</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-type" aria-hidden="true">∿</div>
+                <div>
+                  <p class="company-name">Independent · Freelance</p>
+                  <h3>Software Developer</h3>
+                  <p class="card-summary">
+                    Built websites and mobile applications while collaborating
+                    remotely with product managers, designers, and developers.
+                  </p>
+                </div>
+              </div>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>React Native</span><span>JavaScript</span><span>Remote delivery</span>
+              </div>
+              <span class="card-index" aria-hidden="true">03</span>
+            </article>
+
+            <article class="experience-card card-accelbyte reveal" data-experience="3">
+              <div class="card-topline">
+                <span>MAR 2021 — JUN 2021</span>
+                <span>YOGYAKARTA</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-accelbyte">
+                  <img src="assets/images/accelbyte.svg" alt="AccelByte logo" />
+                </div>
+                <div>
+                  <p class="company-name">AccelByte Inc · Full-time</p>
+                  <h3>Software Engineer</h3>
+                  <p class="card-summary">
+                    Developed and maintained web and desktop products, pairing
+                    closely with UX and visual design to translate proposals into UI.
+                  </p>
+                </div>
+              </div>
+              <ul class="impact-list">
+                <li>Worked with React and Electron across web and desktop.</li>
+                <li>Reviewed code against shared standards and design guidelines.</li>
+              </ul>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>Electron</span><span>TypeScript</span><span>UX collaboration</span>
+              </div>
+              <span class="card-index" aria-hidden="true">04</span>
+            </article>
+
+            <article class="experience-card card-codex reveal" data-experience="4">
+              <div class="card-topline">
+                <span>DEC 2018 — DEC 2020</span>
+                <span>JAKARTA</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-type company-logo-codex" aria-hidden="true">CX</div>
+                <div>
+                  <p class="company-name">CODEX powered by Telkom Indonesia · Full-time</p>
+                  <h3>Front End Developer</h3>
+                  <p class="card-summary">
+                    Started the route by building accessible recruitment products:
+                    HR systems, assessment tools, and a job portal.
+                  </p>
+                </div>
+              </div>
+              <ul class="impact-list">
+                <li>Shipped React interfaces backed by Redux, Jest, RTL, and Apollo GraphQL.</li>
+                <li>Partnered with backend teams to simplify and retire inefficient API calls.</li>
+              </ul>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>Next.js</span><span>GraphQL</span><span>Testing</span>
+              </div>
+              <span class="card-index" aria-hidden="true">05</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles section-pad" aria-labelledby="principles-title">
+        <div class="section-kicker reveal">
+          <span>03 / Working style</span>
+          <span>What survives the handoff</span>
+        </div>
+        <div class="principles-head reveal">
+          <h2 id="principles-title">Build for the handoff,<br />not the screenshot.</h2>
+          <p>
+            The best interface still works after the demo: understandable code,
+            purposeful motion, and enough flexibility for the next idea.
+          </p>
+        </div>
+        <div class="principle-cards">
           <article class="principle reveal">
             <span>01</span>
             <h3>Make the system visible.</h3>
-            <p>Reusable foundations help a team move faster without losing coherence.</p>
+            <p>Patterns beat one-off cleverness. I create reusable foundations teams can extend.</p>
           </article>
           <article class="principle reveal">
             <span>02</span>
-            <h3>Use motion with purpose.</h3>
-            <p>Animation is useful when it explains state or directs attention.</p>
+            <h3>Motion needs a job.</h3>
+            <p>Animation should explain state, direct attention, or add character—ideally all three.</p>
           </article>
           <article class="principle reveal">
             <span>03</span>
             <h3>Ship, observe, refine.</h3>
-            <p>The people using a product are part of the design process.</p>
+            <p>Good product work is a conversation with the people actually using it.</p>
           </article>
         </div>
       </section>
 
       <section class="contact" id="contact" aria-labelledby="contact-title">
-        <div class="page-shell reveal">
-          <p class="eyebrow">Have an interesting product or a hard interface?</p>
-          <h2 id="contact-title">Let’s make it clear.</h2>
-          <a class="contact-email" href="mailto:wijayanto.a.p@gmail.com">
-            wijayanto.a.p@gmail.com <span aria-hidden="true">↗</span>
-          </a>
-          <div class="contact-links">
-            <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href="https://github.com/wijayantoap" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="https://play.google.com/store/apps/dev?id=8601537896599354929" target="_blank" rel="noreferrer">Google Play ↗</a>
-          </div>
+        <div class="contact-orbit" aria-hidden="true"><span>LET’S MAKE IT MOVE · LET’S MAKE IT MOVE · </span></div>
+        <p class="eyebrow reveal">Have a weird idea or a hard interface?</p>
+        <h2 id="contact-title" class="reveal">Let’s make it<br /><em>feel obvious.</em></h2>
+        <a class="contact-email reveal" href="mailto:wijayanto.a.p@gmail.com">
+          wijayanto.a.p@gmail.com <span aria-hidden="true">↗</span>
+        </a>
+        <div class="contact-links reveal">
+          <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/wijayantoap" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://play.google.com/store/apps/dev?id=8601537896599354929" target="_blank" rel="noreferrer">Google Play ↗</a>
         </div>
       </section>
     </main>
 
-    <footer class="page-shell">
+    <footer>
       <span>© <span data-year></span> WAP</span>
-      <span>Yogyakarta, Indonesia</span>
+      <span>Built from Yogyakarta with code + curiosity.</span>
       <a href="#top">Back to top ↑</a>
     </footer>
 
