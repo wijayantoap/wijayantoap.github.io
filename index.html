@@ -1,144 +1,374 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Wijayanto Abdurrahman Prawirodirjo</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="./css/main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f0df" />
+    <meta
+      name="description"
+      content="Frontend engineer crafting expressive, durable interfaces with React, TypeScript, and a healthy obsession with motion."
+    />
+    <meta property="og:title" content="WAP — Frontend Engineer" />
+    <meta
+      property="og:description"
+      content="Code, motion, and seven years of turning complex products into interfaces that feel obvious."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wijayantoap.github.io/" />
+    <meta property="og:image" content="https://wijayantoap.github.io/assets/images/og-portfolio.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="WAP frontend engineer portfolio poster" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WAP — Frontend Engineer" />
+    <meta
+      name="twitter:description"
+      content="Code, motion, and seven years of turning complex products into interfaces that feel obvious."
+    />
+    <meta name="twitter:image" content="https://wijayantoap.github.io/assets/images/og-portfolio.jpg" />
+    <title>WAP — Frontend Engineer</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Manrope:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
-    <div class="number" ><h2 id="asu">wap. <hr class="line"/></h2></div>
-    <div class="container">
-      <section id="wrapper1">
-        <h1>
-          <p href="" class="typewrite" data-period="2000" data-type='[ "Hello.", "olá.", "привет", "你好 .", "Bonjour.", "こんにちは." ]'>
-            <span class="wrap"></span>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="WAP, back to top">
+        <span>WAP</span><i>.</i>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="header-status" href="mailto:wijayanto.a.p@gmail.com">
+        <span aria-hidden="true"></span>
+        Available for good conversations
+      </a>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Frontend engineer · Indonesia / Remote</p>
+          <h1 id="hero-title">
+            <span class="hero-line hero-line-one">I make digital</span>
+            <span class="hero-line hero-line-two">things <em>move.</em></span>
+          </h1>
+          <div class="hero-bottom reveal">
+            <p>
+              I turn complicated products into clear, expressive interfaces—
+              from travel super apps to tools for the world’s design platforms.
+            </p>
+            <a class="arrow-link" href="#experience">
+              Follow the career route
+              <span aria-hidden="true">↘</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-portrait reveal" data-parallax>
+          <div class="portrait-orbit orbit-one" aria-hidden="true"></div>
+          <div class="portrait-orbit orbit-two" aria-hidden="true"></div>
+          <figure class="portrait-frame">
+            <img
+              src="assets/images/profile.jpg"
+              alt="Wijayanto Abdurrahman Prawirodirjo"
+              width="460"
+              height="460"
+            />
+            <figcaption>
+              <span>W.</span>
+              <span>07°47′S<br />110°22′E</span>
+            </figcaption>
+          </figure>
+          <span class="portrait-tag tag-react">React</span>
+          <span class="portrait-tag tag-typescript">TypeScript</span>
+          <span class="portrait-tag tag-motion">Motion ↗</span>
+        </div>
+
+        <a class="scroll-cue" href="#about">
+          <span>Scroll to travel</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <div class="ticker" aria-label="Core skills">
+        <div class="ticker-track" aria-hidden="true">
+          <span>React</span><i>✦</i><span>TypeScript</span><i>✦</i>
+          <span>Design systems</span><i>✦</i><span>React Native</span><i>✦</i>
+          <span>Plugins</span><i>✦</i><span>Motion</span><i>✦</i>
+          <span>React</span><i>✦</i><span>TypeScript</span><i>✦</i>
+          <span>Design systems</span><i>✦</i><span>React Native</span><i>✦</i>
+          <span>Plugins</span><i>✦</i><span>Motion</span><i>✦</i>
+        </div>
+      </div>
+
+      <section class="about section-pad" id="about" aria-labelledby="about-title">
+        <div class="section-kicker reveal">
+          <span>01 / About</span>
+          <span>Builder since 2018</span>
+        </div>
+        <div class="about-lead">
+          <h2 id="about-title" class="reveal">
+            Somewhere between<br />
+            <span>logic</span> and <span>delight</span><br />
+            is the right interface.
+          </h2>
+          <p class="reveal">
+            I’m Wijayanto—a frontend engineer who likes systems that scale and
+            interactions that feel human. My work moves between web, mobile,
+            plugins, and the tiny details that make all four feel coherent.
           </p>
-        </h1>
-      </section>
-      <section>
-        <div class="wrapper2">
-          <h2>Who?</h2>
-          <h1>#WijayantoAbdurrahmanPrawirodirjo.</h1>
-          <h3>A rather long one isn't it? <br />
-            Earned a <span>Bachelor of Science in Information Technology</span> in 2018 from <a href="https://www.apu.edu.my/" target="_blank">Asia Pacific University</a>, Malaysia<br />
-              I have around <span>3 years of experience</span> as a software developer <br />
-              Currently working as a freelancer <br />
-              Interested in developing <span>web</span> and <span>mobile apps</span> <br />
-              A Googler <br />
-              Definitely a user of Stackoverflow (Stackoverflower?)<br />
-              Spends time on things outside of engineering, like hobbies, friends, and family <br />
-              I have no preference on tools, framework or languages as long as it gets the job done <br />
-              (Most of my work uses <span>JavaScript</span> + <span>React /(Native)</span> tho) <br />
-              Based in Yogyakarta ATM.
-          </h3>
+        </div>
+
+        <div class="signal-grid">
+          <article class="signal-card signal-card-dark reveal">
+            <span class="signal-number">07+</span>
+            <p>Years turning product requirements into shipped interfaces.</p>
+            <div class="signal-wave" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+          </article>
+          <article class="signal-card signal-card-blue reveal">
+            <span class="signal-label">Now</span>
+            <h3>Design tools,<br />but from the inside.</h3>
+            <p>Building plugins across multiple creative platforms at LottieFiles.</p>
+            <span class="signal-stamp" aria-hidden="true">LF / 24—NOW</span>
+          </article>
+          <article class="signal-card signal-card-paper reveal">
+            <span class="signal-label">Operating mode</span>
+            <ul>
+              <li><span>01</span>Think in systems</li>
+              <li><span>02</span>Prototype the risky bit</li>
+              <li><span>03</span>Polish what people feel</li>
+            </ul>
+          </article>
         </div>
       </section>
-      <section>
-        <div class="wrapper3">
-          <h2>Work.</h2>
-          <dl>
-            <dt><li>Codex powered by Telkom Indonesia, Jakarta</li></dt>
-            <dd>2018 - 2020.</dd>
-            <dd>-Developed various web apps to support Telkom DXB's recruitment process</dd>
-            <dt><li>Accelbyte, Yogyakarta</li></dt>
-            <dd>2021 - 2021.</dd>
-            <dd>-Contribute to Plus9 2.0 launch</dd>
-            <dt><li>What do I do now?</li></dt>
-            <dd>2021 - now.</dd>
-            <dd>-Freelance</dd>
-            <dd>-Developing various side projects (mobile and web based)!</dd>
-            <dt><li>What's next?</li></dt>
-            <dd>Looking forward to what the future holds (read as: e-mail me if you have an interesting opportunity ;) )
-            </dd>
-          </dl>
-          <p>PS: Checkout my LinkedIn below for more detailed information</p>
+
+      <section class="experience section-pad" id="experience" aria-labelledby="experience-title">
+        <div class="section-kicker section-kicker-light reveal">
+          <span>02 / Experience</span>
+          <span>Jakarta → Yogyakarta → Kuala Lumpur → Remote</span>
         </div>
-      </section>
-      <section>
-        <div class="wrapper3">
-          <h2>Contact.</h2>
-          <h1>Get in <span>touch</span></h1>
-          <h3>
-            wijayanto.a.p@gmail.com
-          </h3>
-          <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <div>
-          <a href="https://github.com/wijayantoap" target="_blank"><i class="fab fa-github-square"></i></a>
+        <div class="experience-heading reveal">
+          <p>Selected route</p>
+          <h2 id="experience-title">Five chapters.<br />One moving system.</h2>
+        </div>
+
+        <div class="experience-layout" data-timeline>
+          <aside class="route-map" aria-label="Career timeline progress">
+            <span class="route-label">Career route</span>
+            <div class="route-line" aria-hidden="true">
+              <span class="route-fill"></span>
+              <i class="route-dot"></i>
+            </div>
+            <ol>
+              <li class="is-active" data-route-index="0"><span>2024</span>LottieFiles</li>
+              <li data-route-index="1"><span>2022</span>AirAsia</li>
+              <li data-route-index="2"><span>2021</span>Freelance</li>
+              <li data-route-index="3"><span>2021</span>AccelByte</li>
+              <li data-route-index="4"><span>2018</span>CODEX</li>
+            </ol>
+          </aside>
+
+          <div class="experience-list">
+            <article class="experience-card card-lottie reveal" data-experience="0">
+              <div class="card-topline">
+                <span>SEP 2024 — PRESENT</span>
+                <span>INDONESIA · REMOTE</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-lottie">
+                  <img src="assets/images/lottiefiles.png" alt="LottieFiles logo" width="256" height="256" />
+                </div>
+                <div>
+                  <p class="company-name">LottieFiles · Full-time</p>
+                  <h3>Frontend Engineer</h3>
+                  <p class="card-summary">
+                    Building and maintaining plugins across multiple design
+                    platforms, with React and TypeScript at the center.
+                  </p>
+                </div>
+              </div>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>TypeScript</span><span>Plugins</span><span>Design platforms</span>
+              </div>
+              <span class="card-index" aria-hidden="true">01</span>
+            </article>
+
+            <article class="experience-card card-airasia reveal" data-experience="1">
+              <div class="card-topline">
+                <span>MAR 2022 — AUG 2024</span>
+                <span>KUALA LUMPUR</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-airasia">
+                  <img src="assets/images/airasia.webp" alt="AirAsia logo" />
+                </div>
+                <div>
+                  <p class="company-name">AirAsia · Full-time</p>
+                  <h3>Software Engineer</h3>
+                  <p class="card-summary">
+                    Helped ship Food Delivery and Ride experiences inside the
+                    AirAsia SuperApp across web and mobile surfaces.
+                  </p>
+                </div>
+              </div>
+              <ul class="impact-list">
+                <li>Delivered features across several Agile product teams.</li>
+                <li>Worked across React, React Native, TypeScript, SASS, and JavaScript.</li>
+              </ul>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React Native</span><span>TypeScript</span><span>SASS</span><span>SuperApp</span>
+              </div>
+              <span class="card-index" aria-hidden="true">02</span>
+            </article>
+
+            <article class="experience-card card-freelance reveal" data-experience="2">
+              <div class="card-topline">
+                <span>JAN 2021 — APR 2022</span>
+                <span>REMOTE</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-type" aria-hidden="true">∿</div>
+                <div>
+                  <p class="company-name">Independent · Freelance</p>
+                  <h3>Software Developer</h3>
+                  <p class="card-summary">
+                    Built websites and mobile applications while collaborating
+                    remotely with product managers, designers, and developers.
+                  </p>
+                </div>
+              </div>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>React Native</span><span>JavaScript</span><span>Remote delivery</span>
+              </div>
+              <span class="card-index" aria-hidden="true">03</span>
+            </article>
+
+            <article class="experience-card card-accelbyte reveal" data-experience="3">
+              <div class="card-topline">
+                <span>MAR 2021 — JUN 2021</span>
+                <span>YOGYAKARTA</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-accelbyte">
+                  <img src="assets/images/accelbyte.svg" alt="AccelByte logo" />
+                </div>
+                <div>
+                  <p class="company-name">AccelByte Inc · Full-time</p>
+                  <h3>Software Engineer</h3>
+                  <p class="card-summary">
+                    Developed and maintained web and desktop products, pairing
+                    closely with UX and visual design to translate proposals into UI.
+                  </p>
+                </div>
+              </div>
+              <ul class="impact-list">
+                <li>Worked with React and Electron across web and desktop.</li>
+                <li>Reviewed code against shared standards and design guidelines.</li>
+              </ul>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>Electron</span><span>TypeScript</span><span>UX collaboration</span>
+              </div>
+              <span class="card-index" aria-hidden="true">04</span>
+            </article>
+
+            <article class="experience-card card-codex reveal" data-experience="4">
+              <div class="card-topline">
+                <span>DEC 2018 — DEC 2020</span>
+                <span>JAKARTA</span>
+              </div>
+              <div class="card-main">
+                <div class="company-logo company-logo-type company-logo-codex" aria-hidden="true">CX</div>
+                <div>
+                  <p class="company-name">CODEX powered by Telkom Indonesia · Full-time</p>
+                  <h3>Front End Developer</h3>
+                  <p class="card-summary">
+                    Started the route by building accessible recruitment products:
+                    HR systems, assessment tools, and a job portal.
+                  </p>
+                </div>
+              </div>
+              <ul class="impact-list">
+                <li>Shipped React interfaces backed by Redux, Jest, RTL, and Apollo GraphQL.</li>
+                <li>Partnered with backend teams to simplify and retire inefficient API calls.</li>
+              </ul>
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>Next.js</span><span>GraphQL</span><span>Testing</span>
+              </div>
+              <span class="card-index" aria-hidden="true">05</span>
+            </article>
           </div>
-          <div>
-            <a href="https://play.google.com/store/apps/dev?id=8601537896599354929" target="_blank"><i class="fab fa-google-play"></i></a>
-          </div>
         </div>
       </section>
-    </div>
-  <script>
-    var TxtType = function(el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
 
-    const colors = ["#FFD700", "blue", "red", "yellow" , "orange", "white"]
+      <section class="principles section-pad" aria-labelledby="principles-title">
+        <div class="section-kicker reveal">
+          <span>03 / Working style</span>
+          <span>What survives the handoff</span>
+        </div>
+        <div class="principles-head reveal">
+          <h2 id="principles-title">Build for the handoff,<br />not the screenshot.</h2>
+          <p>
+            The best interface still works after the demo: understandable code,
+            purposeful motion, and enough flexibility for the next idea.
+          </p>
+        </div>
+        <div class="principle-cards">
+          <article class="principle reveal">
+            <span>01</span>
+            <h3>Make the system visible.</h3>
+            <p>Patterns beat one-off cleverness. I create reusable foundations teams can extend.</p>
+          </article>
+          <article class="principle reveal">
+            <span>02</span>
+            <h3>Motion needs a job.</h3>
+            <p>Animation should explain state, direct attention, or add character—ideally all three.</p>
+          </article>
+          <article class="principle reveal">
+            <span>03</span>
+            <h3>Ship, observe, refine.</h3>
+            <p>Good product work is a conversation with the people actually using it.</p>
+          </article>
+        </div>
+      </section>
 
-    TxtType.prototype.tick = function() {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-orbit" aria-hidden="true"><span>LET’S MAKE IT MOVE · LET’S MAKE IT MOVE · </span></div>
+        <p class="eyebrow reveal">Have a weird idea or a hard interface?</p>
+        <h2 id="contact-title" class="reveal">Let’s make it<br /><em>feel obvious.</em></h2>
+        <a class="contact-email reveal" href="mailto:wijayanto.a.p@gmail.com">
+          wijayanto.a.p@gmail.com <span aria-hidden="true">↗</span>
+        </a>
+        <div class="contact-links reveal">
+          <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/wijayantoap" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://play.google.com/store/apps/dev?id=8601537896599354929" target="_blank" rel="noreferrer">Google Play ↗</a>
+        </div>
+      </section>
+    </main>
 
-        if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
+    <footer>
+      <span>© <span data-year></span> WAP</span>
+      <span>Built from Yogyakarta with code + curiosity.</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
-        var that = this;
-        var delta = 200 - Math.random() * 100;
-
-        if (this.isDeleting) { delta /= 2; }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-        console.log(i)
-        document.getElementById("wrapper1").style.backgroundColor = colors[i]
-        document.getElementById("wrapper1").style.transition = 'background-color 1s linear';
-        }
-
-
-        setTimeout(function() {
-        that.tick();
-        }, delta);
-    };
-
-    window.onload = function() {
-        var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
-            }
-        }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-        document.body.appendChild(css);
-    };
-  </script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
