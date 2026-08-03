@@ -43,11 +43,20 @@
         background: var(--paper);
         color: var(--ink);
         font-family: Manrope, sans-serif;
+        overflow-x: clip;
       }
 
       .atlas {
         display: grid;
         grid-template-columns: 41vw 1fr;
+      }
+
+      .atlas,
+      .route,
+      .waypoint,
+      .waypoint-inner,
+      .product-story > * {
+        min-width: 0;
       }
 
       .cover {
@@ -440,12 +449,21 @@
 
       @media (max-width: 600px) {
         .cover { padding: 1rem; }
+        .cover-top {
+          flex-direction: column;
+          gap: 0.35rem;
+        }
         .cover-bottom { grid-template-columns: 1fr; }
         .active-stamp { width: max-content; }
         .route::before { left: 1.4rem; }
         .waypoint { padding: 5rem 1rem 5rem 3.5rem; }
         .waypoint::before { left: 0.55rem; }
-        .waypoint h2 { font-size: 3.35rem; }
+        .waypoint h2 {
+          max-width: 100%;
+          font-size: clamp(2.65rem, 12.5vw, 3.35rem);
+          hyphens: auto;
+          overflow-wrap: anywhere;
+        }
         .meta { flex-direction: column; }
         .product-story { grid-template-columns: 1fr; }
         .brand-lockup img { max-width: 70vw; }
