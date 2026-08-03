@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Wijayanto A.P. — frontend engineer working across web, mobile, desktop, and design platforms."
+    />
+    <title>Wijayanto A.P. — Blue Editorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/concepts/common.css" />
+    <style>
+      :root {
+        --ink: #07101d;
+        --blue: #0067dd;
+        --deep-blue: #061ebd;
+        --cyan: #42eeff;
+        --pink: #f479d3;
+        --paper: #f8f8f5;
+        --line: rgba(7, 16, 29, 0.2);
+        --selection: #7af3ff;
+        --progress-color: #f479d3;
+        --switch-bg: rgba(255, 255, 255, 0.9);
+        --switch-active: #061ebd;
+      }
+
+      body {
+        overflow-x: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Manrope, sans-serif;
+      }
+
+      .site-nav {
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 1.1rem clamp(1rem, 3vw, 3.5rem);
+        color: var(--ink);
+        mix-blend-mode: multiply;
+      }
+
+      .site-nav > a {
+        font-family: "Archivo Black", sans-serif;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .site-nav nav {
+        display: flex;
+        gap: clamp(0.8rem, 2vw, 2.2rem);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .site-nav nav a {
+        text-decoration: none;
+      }
+
+      .site-nav nav a:hover,
+      .site-nav nav a:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 0.35rem;
+      }
+
+      .scene {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+      }
+
+      .scene-label {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .scene-label::before {
+        content: "";
+        width: 2.5rem;
+        height: 2px;
+        background: currentColor;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(18rem, 31vw) 1fr;
+        background: #fff;
+      }
+
+      .hero-paper {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8rem clamp(1.5rem, 4vw, 5rem) 5rem;
+        background: #fff;
+      }
+
+      .hero-paper::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: -6%;
+        right: -12rem;
+        width: 18rem;
+        height: 118%;
+        background: #fff;
+        clip-path: polygon(0 0, 52% 9%, 26% 28%, 87% 44%, 35% 60%, 100% 78%, 50% 100%, 0 100%);
+      }
+
+      .hero-paper p {
+        margin: 0;
+        font-family: "Bodoni Moda", serif;
+        font-size: clamp(1.6rem, 2.8vw, 3rem);
+        font-weight: 500;
+        line-height: 1.08;
+      }
+
+      .hero-paper .location {
+        margin-top: 2rem;
+        font-family: Manrope, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 800;
+        line-height: 1.7;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-blue {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 8rem clamp(2rem, 7vw, 8rem) 6rem clamp(7rem, 11vw, 13rem);
+        background:
+          radial-gradient(ellipse at 64% 12%, rgba(103, 244, 255, 0.74), transparent 28%),
+          radial-gradient(ellipse at 74% 22%, rgba(113, 232, 255, 0.35), transparent 45%),
+          repeating-radial-gradient(ellipse at 76% -10%, transparent 0 1.2rem, rgba(255, 255, 255, 0.1) 1.3rem 1.45rem, transparent 1.55rem 3rem),
+          linear-gradient(180deg, #1edcf2 0%, #087ddf 38%, #082fc6 72%, #1112ad 100%);
+        color: #fff;
+      }
+
+      .hero-blue::before,
+      .hero-blue::after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        left: -4rem;
+        background: #05070b;
+        transform: translateY(calc(var(--scroll-progress, 0) * 22rem)) rotate(-12deg);
+        transform-origin: center;
+        pointer-events: none;
+      }
+
+      .hero-blue::before {
+        top: -10rem;
+        width: 3.2rem;
+        height: 72%;
+        clip-path: polygon(31% 0, 100% 3%, 53% 39%, 82% 72%, 0 100%, 29% 56%, 0 25%);
+      }
+
+      .hero-blue::after {
+        top: 5rem;
+        left: 1.5rem;
+        width: 2rem;
+        height: 58%;
+        clip-path: polygon(0 0, 100% 8%, 36% 42%, 100% 58%, 12% 100%, 43% 59%);
+      }
+
+      .hero-title {
+        position: relative;
+        z-index: 4;
+        width: min-content;
+      }
+
+      .hero-title h1 {
+        margin: 1.5rem 0;
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(4.8rem, 10vw, 11.5rem);
+        font-weight: 400;
+        line-height: 0.71;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-title h1 span {
+        display: block;
+      }
+
+      .hero-title h1 span:last-child {
+        margin-left: 0.22em;
+        color: transparent;
+        -webkit-text-stroke: 0.025em #fff;
+      }
+
+      .hero-summary {
+        position: relative;
+        z-index: 4;
+        max-width: 45rem;
+        margin: 2rem 0 0 10%;
+        font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .pink-mark {
+        position: absolute;
+        z-index: 3;
+        top: 34%;
+        left: 12%;
+        width: 1.25rem;
+        height: 4rem;
+        background: var(--pink);
+        clip-path: polygon(0 0, 100% 18%, 60% 100%, 21% 60%);
+        animation: float 3.5s ease-in-out infinite alternate;
+      }
+
+      .scroll-cue {
+        position: absolute;
+        z-index: 6;
+        bottom: 1.75rem;
+        left: 50%;
+        display: grid;
+        justify-items: center;
+        gap: 0.5rem;
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .scroll-cue::after {
+        content: "";
+        width: 1px;
+        height: 2.2rem;
+        background: currentColor;
+        animation: scrollLine 1.6s ease-in-out infinite;
+      }
+
+      .chapter {
+        display: grid;
+        place-items: center;
+        padding: clamp(7rem, 11vw, 11rem) clamp(1rem, 6vw, 7rem);
+      }
+
+      .chapter-inner {
+        position: relative;
+        z-index: 2;
+        width: min(1180px, 100%);
+      }
+
+      .chapter h2 {
+        max-width: 11ch;
+        margin: 1.3rem 0 3rem;
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(4rem, 8vw, 8.5rem);
+        font-weight: 400;
+        line-height: 0.78;
+        letter-spacing: -0.075em;
+        text-transform: uppercase;
+      }
+
+      .chapter-lead {
+        max-width: 52rem;
+        font-family: "Bodoni Moda", serif;
+        font-size: clamp(1.6rem, 3.1vw, 3.2rem);
+        line-height: 1.12;
+      }
+
+      .experience {
+        background: var(--paper);
+      }
+
+      .experience::after {
+        content: "2018—NOW";
+        position: absolute;
+        right: -0.1em;
+        bottom: -0.18em;
+        color: rgba(7, 16, 29, 0.04);
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(7rem, 19vw, 20rem);
+        letter-spacing: -0.09em;
+        white-space: nowrap;
+      }
+
+      .timeline {
+        margin-top: 5rem;
+        border-top: 2px solid var(--ink);
+      }
+
+      .role {
+        display: grid;
+        grid-template-columns: 10rem minmax(14rem, 0.75fr) 1.25fr;
+        gap: 2rem;
+        padding: 1.6rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .role time,
+      .role span {
+        font-size: 0.72rem;
+        font-weight: 800;
+        line-height: 1.6;
+        text-transform: uppercase;
+      }
+
+      .role h3 {
+        margin: 0;
+        font-size: clamp(1.6rem, 2.5vw, 2.6rem);
+        line-height: 0.96;
+      }
+
+      .role p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .company {
+        color: #fff;
+      }
+
+      .company .company-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: clamp(2rem, 7vw, 8rem);
+        align-items: end;
+      }
+
+      .company-number {
+        font-family: "Bodoni Moda", serif;
+        font-size: clamp(8rem, 22vw, 21rem);
+        line-height: 0.6;
+        opacity: 0.24;
+      }
+
+      .company h2 {
+        margin-bottom: 2rem;
+      }
+
+      .company p {
+        max-width: 45rem;
+        font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+        line-height: 1.65;
+      }
+
+      .company-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 2rem;
+      }
+
+      .company-meta span {
+        padding: 0.55rem 0.8rem;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .lottie {
+        background:
+          radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.55), transparent 23%),
+          linear-gradient(135deg, #00a98f, #00d9b6 62%, #89ffe6);
+        color: #041d1a;
+      }
+
+      .airasia {
+        background:
+          repeating-linear-gradient(153deg, transparent 0 5rem, rgba(255, 255, 255, 0.05) 5.1rem 5.2rem),
+          linear-gradient(145deg, #c90912, #ee171e 58%, #ff5056);
+      }
+
+      .airasia .company-number {
+        transform: rotate(-8deg);
+      }
+
+      .products {
+        background: #07101d;
+        color: #fff;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 1px;
+        margin-top: 4rem;
+        background: rgba(255, 255, 255, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .product {
+        min-height: 34rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: clamp(1.5rem, 4vw, 4rem);
+        background: #07101d;
+      }
+
+      .product:first-child {
+        background: #f4ff96;
+        color: var(--ink);
+      }
+
+      .product h3 {
+        margin: 1rem 0;
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(3.5rem, 7vw, 7rem);
+        font-weight: 400;
+        line-height: 0.78;
+        letter-spacing: -0.07em;
+        text-transform: uppercase;
+      }
+
+      .product p {
+        max-width: 54rem;
+        line-height: 1.65;
+      }
+
+      .product .story {
+        color: #cad4df;
+      }
+
+      .product-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+        font-weight: 800;
+      }
+
+      .collaboration {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.85), transparent 45%),
+          repeating-linear-gradient(115deg, #dff8ff 0 4rem, #d6f3fa 4rem 8rem);
+      }
+
+      .collaboration h2 {
+        color: var(--deep-blue);
+      }
+
+      .evidence {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        margin-top: 4rem;
+        background: var(--ink);
+        border: 1px solid var(--ink);
+      }
+
+      .evidence article {
+        min-height: 14rem;
+        padding: 1.5rem;
+        background: #fff;
+      }
+
+      .evidence strong {
+        display: block;
+        margin-top: 4rem;
+        font-family: "Bodoni Moda", serif;
+        font-size: 1.8rem;
+        line-height: 1.05;
+      }
+
+      .evidence p {
+        font-size: 0.82rem;
+        line-height: 1.5;
+      }
+
+      .education {
+        background: #fff;
+      }
+
+      .degree-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        margin-top: 4rem;
+        background: var(--ink);
+        border: 1px solid var(--ink);
+      }
+
+      .degree {
+        min-height: 27rem;
+        padding: clamp(1.5rem, 4vw, 4rem);
+        background: #fff;
+      }
+
+      .degree:last-child {
+        background: var(--deep-blue);
+        color: #fff;
+      }
+
+      .degree h3 {
+        margin: 3rem 0 1rem;
+        font-family: "Bodoni Moda", serif;
+        font-size: clamp(2rem, 3.8vw, 4rem);
+        line-height: 1;
+      }
+
+      .degree p {
+        line-height: 1.6;
+      }
+
+      .contact {
+        min-height: 75svh;
+        background: #07101d;
+        color: #fff;
+      }
+
+      .contact h2 {
+        max-width: 12ch;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 4rem;
+      }
+
+      .contact-links a {
+        padding: 0.9rem 1.2rem;
+        border: 1px solid;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .contact-links a:hover,
+      .contact-links a:focus-visible {
+        background: #fff;
+        color: var(--ink);
+      }
+
+      @keyframes float {
+        to { transform: translate(1rem, -1.5rem) rotate(15deg); }
+      }
+
+      @keyframes scrollLine {
+        0%, 100% { transform: scaleY(0.25); transform-origin: top; }
+        50% { transform: scaleY(1); transform-origin: top; }
+      }
+
+      @media (max-width: 900px) {
+        .site-nav nav a:nth-child(3),
+        .site-nav nav a:nth-child(4) { display: none; }
+        .hero { grid-template-columns: 1fr; }
+        .hero-paper { min-height: 32svh; padding-top: 7rem; }
+        .hero-paper::after {
+          top: auto;
+          right: -5%;
+          bottom: -7rem;
+          width: 110%;
+          height: 10rem;
+          clip-path: polygon(0 0, 22% 45%, 40% 10%, 58% 55%, 75% 4%, 100% 47%, 100% 100%, 0 100%);
+        }
+        .hero-blue { min-height: 75svh; padding: 8rem 1.5rem 5rem; }
+        .hero-blue::before { left: 60%; top: -10rem; height: 42%; }
+        .hero-blue::after { left: 75%; top: -4rem; height: 34%; }
+        .hero-summary { margin-left: 0; }
+        .scroll-cue { left: 1.5rem; }
+        .role { grid-template-columns: 1fr 1fr; }
+        .role p { grid-column: 1 / -1; }
+        .company .company-grid,
+        .product-grid { grid-template-columns: 1fr; }
+        .company-number { order: 2; }
+        .evidence { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 600px) {
+        .site-nav { padding: 0.85rem 1rem; }
+        .site-nav nav { gap: 0.8rem; }
+        .site-nav nav a:nth-child(2) { display: none; }
+        .hero-title h1 { font-size: clamp(4.4rem, 23vw, 7rem); }
+        .chapter h2 { font-size: clamp(3.4rem, 18vw, 5.5rem); }
+        .role { grid-template-columns: 1fr; gap: 0.6rem; }
+        .role p { grid-column: auto; }
+        .evidence,
+        .degree-grid { grid-template-columns: 1fr; }
+        .product { min-height: auto; }
+        .concept-switcher { mix-blend-mode: normal; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress"></div>
+    <header class="site-nav">
+      <a href="/">WIJAYANTO A.P.</a>
+      <nav aria-label="Main navigation">
+        <a href="#experience">Experience</a>
+        <a href="#products">Products</a>
+        <a href="#collaboration">Collaboration</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="scene hero" aria-labelledby="hero-title">
+        <div class="hero-paper">
+          <p>Frontend engineer working across products, platforms, and teams.</p>
+          <span class="location">Indonesia · Remote<br />React · TypeScript · React Native</span>
+        </div>
+        <div class="hero-blue">
+          <span class="pink-mark" aria-hidden="true"></span>
+          <div class="hero-title" data-reveal>
+            <span class="scene-label">Portfolio · 2018—Now</span>
+            <h1 id="hero-title"><span>Front</span><span>end.</span></h1>
+          </div>
+          <p class="hero-summary" data-reveal>
+            I build and maintain interfaces across web, mobile, desktop, and design platforms. My experience spans Indonesia, Malaysia, and distributed teams.
+          </p>
+          <span class="scroll-cue">Scroll</span>
+        </div>
+      </section>
+
+      <section class="scene chapter experience" id="experience" aria-labelledby="experience-title">
+        <div class="chapter-inner">
+          <span class="scene-label" data-reveal>Professional experience</span>
+          <h2 id="experience-title" data-reveal>Five product contexts.</h2>
+          <p class="chapter-lead" data-reveal>
+            From enterprise products and game services to mobility, delivery, and creative tooling.
+          </p>
+          <div class="timeline" data-reveal>
+            <article class="role">
+              <time>Sep 2024—Present</time><h3>LottieFiles</h3><p>Building and maintaining React and TypeScript plugins across multiple design platforms.</p>
+            </article>
+            <article class="role">
+              <time>Mar 2022—Aug 2024</time><h3>AirAsia</h3><p>Contributed to Food delivery and Ride e-hailing products using React and React Native in Kuala Lumpur.</p>
+            </article>
+            <article class="role">
+              <time>Jan 2021—Apr 2022</time><h3>Freelance</h3><p>Developed websites and mobile applications while working remotely with product managers, designers, and developers.</p>
+            </article>
+            <article class="role">
+              <time>Mar—Jun 2021</time><h3>AccelByte</h3><p>Developed and maintained web and desktop interfaces with React, TypeScript, and Electron in Yogyakarta.</p>
+            </article>
+            <article class="role">
+              <time>Dec 2018—Dec 2020</time><h3>CODEX / Telkom</h3><p>Built frontend features for HR management, assessment, and job portal products in Jakarta.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene chapter company lottie" aria-labelledby="lottie-title">
+        <div class="chapter-inner company-grid">
+          <div class="company-number" aria-hidden="true">01</div>
+          <div data-reveal>
+            <span class="scene-label">Current role · Remote</span>
+            <h2 id="lottie-title">Lottie Files.</h2>
+            <p>As a Frontend Engineer, I build and maintain plugins across multiple design platforms, specializing in frontend development with React and TypeScript.</p>
+            <div class="company-meta"><span>React</span><span>TypeScript</span><span>Design platforms</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene chapter company airasia" aria-labelledby="airasia-title">
+        <div class="chapter-inner company-grid">
+          <div data-reveal>
+            <span class="scene-label">2022—2024 · Kuala Lumpur</span>
+            <h2 id="airasia-title">Air Asia.</h2>
+            <p>I contributed to AirAsia SuperApp Food delivery and Ride e-hailing experiences using JavaScript, TypeScript, React, and React Native, collaborating across multiple Agile teams.</p>
+            <div class="company-meta"><span>Food delivery</span><span>Ride e-hailing</span><span>React Native</span></div>
+          </div>
+          <div class="company-number" aria-hidden="true">02</div>
+        </div>
+      </section>
+
+      <section class="scene chapter products" id="products" aria-labelledby="products-title">
+        <div class="chapter-inner">
+          <span class="scene-label" data-reveal>Independent products</span>
+          <h2 id="products-title" data-reveal>Built beyond client work.</h2>
+          <div class="product-grid">
+            <article class="product" data-reveal>
+              <div>
+                <span class="scene-label">Co-built · Web + Android</span>
+                <h3>GAG101</h3>
+                <p>A positive meme community where people can upload posts, react, comment, save content, customize their feed, earn badges, and join leaderboards. The Android app has reached more than 10,000 downloads.</p>
+              </div>
+              <nav class="product-links"><a href="https://gag101.com/" target="_blank" rel="noreferrer">Visit website ↗</a><a href="https://play.google.com/store/apps/details?id=com.gag101.gag101mobile" target="_blank" rel="noreferrer">Android app ↗</a></nav>
+            </article>
+            <article class="product" data-reveal>
+              <div>
+                <span class="scene-label">Solo-built · Product story</span>
+                <h3>Dota Captain</h3>
+                <p>I built DotaCaptain to make Dota 2 Captain’s Mode drafting easier to practice in a browser. It began as an AI draft sandbox and expanded through player feedback.</p>
+                <p class="story">The product now includes full pick-and-ban drafting for 127 heroes, AI opponents, ranked PvP, private rooms, roles and builds, match simulation, progression, and guilds. Building it alone has meant owning the product, game design, frontend, multiplayer state, simulation logic, infrastructure, and development notes.</p>
+              </div>
+              <nav class="product-links"><a href="https://dotacaptain.com/" target="_blank" rel="noreferrer">Open DotaCaptain ↗</a><a href="https://dotacaptain.com/blog" target="_blank" rel="noreferrer">Read the development story ↗</a></nav>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene chapter collaboration" id="collaboration" aria-labelledby="collaboration-title">
+        <div class="chapter-inner">
+          <span class="scene-label" data-reveal>Cross-cultural collaboration</span>
+          <h2 id="collaboration-title" data-reveal>Experience across locations and disciplines.</h2>
+          <p class="chapter-lead" data-reveal>
+            My background includes working in Indonesia and Malaysia, remote collaboration, and a dual-degree education connected to Malaysia and the UK.
+          </p>
+          <div class="evidence" data-reveal>
+            <article><span>Indonesia</span><strong>Jakarta + Yogyakarta</strong><p>Enterprise products and game-service interfaces.</p></article>
+            <article><span>Malaysia</span><strong>Kuala Lumpur</strong><p>Regional delivery and e-hailing products at AirAsia.</p></article>
+            <article><span>Distributed</span><strong>Remote teams</strong><p>Freelance work and creative-tooling plugins.</p></article>
+            <article><span>Collaboration</span><strong>Product + design + engineering</strong><p>Experience working with different disciplines across Agile teams.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene chapter education" id="education" aria-labelledby="education-title">
+        <div class="chapter-inner">
+          <span class="scene-label" data-reveal>Education · 2015—2018</span>
+          <h2 id="education-title" data-reveal>Information technology.</h2>
+          <div class="degree-grid" data-reveal>
+            <article class="degree">
+              <span class="scene-label">Malaysia</span>
+              <h3>Asia Pacific University of Technology &amp; Innovation</h3>
+              <p>Bachelor’s degree, Information Technology · September 2015—November 2018 · Grade 3.43.</p>
+              <p>Activities: Asia Pacific University Indonesian Student Society.</p>
+            </article>
+            <article class="degree">
+              <span class="scene-label">Dual degree · United Kingdom</span>
+              <h3>University of Staffordshire</h3>
+              <p>Bachelor’s degree, Information Technology · 2015—2018.</p>
+              <p>Dual-degree program through APU, Malaysia and Staffordshire University, UK.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene chapter contact" id="contact" aria-labelledby="contact-title">
+        <div class="chapter-inner">
+          <span class="scene-label" data-reveal>Contact</span>
+          <h2 id="contact-title" data-reveal>Let’s discuss the work.</h2>
+          <p class="chapter-lead" data-reveal>If you are building a web, mobile, desktop, or design-platform product, I would be glad to hear about it.</p>
+          <nav class="contact-links" data-reveal>
+            <a href="mailto:wijayanto.a.p@gmail.com">Email ↗</a>
+            <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/wijayantoap" target="_blank" rel="noreferrer">GitHub ↗</a>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <nav class="concept-switcher" aria-label="Portfolio concepts">
+      <span>Concept</span><a aria-current="page" href="/concepts/01/">01</a><a href="/concepts/02/">02</a><a href="/concepts/03/">03</a><a href="/concepts/04/">04</a><a href="/concepts/05/">05</a>
+    </nav>
+    <script src="/concepts/common.js"></script>
+  </body>
+</html>

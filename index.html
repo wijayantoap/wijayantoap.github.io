@@ -1,144 +1,585 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Wijayanto Abdurrahman Prawirodirjo</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="./css/main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Wijayanto A.P. — frontend engineer building web, mobile, desktop, and design-platform products across Indonesia, Malaysia, and remote teams."
+    />
+    <meta name="theme-color" content="#f6f2e9" />
+    <meta property="og:title" content="Wijayanto A.P. — Frontend Engineer" />
+    <meta
+      property="og:description"
+      content="Professional experience, independent products, and cross-cultural collaboration across frontend platforms."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://wijayantoap.github.io/og-atlas.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://wijayantoap.github.io/og-atlas.png" />
+    <title>Wijayanto A.P. — Frontend Engineer</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/concepts/common.css" />
+    <style>
+      :root {
+        --paper: #f6f2e9;
+        --ink: #172255;
+        --blue: #2757f5;
+        --red: #e31b23;
+        --line: rgba(23, 34, 85, 0.24);
+        --selection: #ffdf5c;
+        --progress-color: #e31b23;
+      }
+
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Manrope, sans-serif;
+      }
+
+      .atlas {
+        display: grid;
+        grid-template-columns: 41vw 1fr;
+      }
+
+      .cover {
+        --cover-accent: var(--blue);
+        position: sticky;
+        top: 0;
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1.5rem 2rem 2rem;
+        border-right: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+        overflow: hidden;
+        background: var(--paper);
+        transition: background 480ms ease, color 480ms ease;
+      }
+
+      .cover::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        right: -14rem;
+        top: 12%;
+        width: 32rem;
+        aspect-ratio: 1;
+        border: 1px solid currentColor;
+        border-radius: 50%;
+        opacity: 0.14;
+        box-shadow: 0 0 0 5rem color-mix(in srgb, currentColor 5%, transparent), 0 0 0 10rem color-mix(in srgb, currentColor 4%, transparent);
+      }
+
+      .cover-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .cover-top a {
+        text-decoration: none;
+      }
+
+      .cover h1 {
+        max-width: 9ch;
+        margin: auto 0 2rem;
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(3.6rem, 6vw, 6.8rem);
+        font-weight: 400;
+        line-height: 0.8;
+        letter-spacing: -0.065em;
+        text-transform: uppercase;
+      }
+
+      .cover h1 em {
+        color: var(--cover-accent);
+        font-style: normal;
+        transition: color 480ms ease;
+      }
+
+      .cover-bottom {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 2rem;
+        align-items: end;
+      }
+
+      .cover-bottom p {
+        max-width: 34rem;
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.55;
+      }
+
+      .active-stamp {
+        padding: 0.8rem;
+        border: 2px solid currentColor;
+        font-size: 0.66rem;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        transform: rotate(-4deg);
+      }
+
+      body[data-active="education"] .cover { --cover-accent: #ff8b81; background: #172255; color: #f6f2e9; }
+      body[data-active="jakarta"] .cover { --cover-accent: #e1262f; background: #f1eee8; color: #191919; }
+      body[data-active="yogyakarta"] .cover { --cover-accent: #9cd0ff; background: #0b6cff; color: #fff; }
+      body[data-active="remote-one"] .cover { --cover-accent: #172255; background: #ffd84a; color: #172255; }
+      body[data-active="kuala-lumpur"] .cover { --cover-accent: #fff; background: #e31b23; color: #fff; }
+      body[data-active="remote-now"] .cover { --cover-accent: #06493d; background: #00ddb3; color: #073b33; }
+      body[data-active="independent"] .cover { --cover-accent: #f1c56b; background: #111827; color: #fff; }
+      body[data-active="practice"] .cover { --cover-accent: #2757f5; background: #dbe4ff; color: #172255; }
+      body[data-active="next"] .cover { --cover-accent: #e31b23; background: #f6f2e9; color: #172255; }
+
+      .route {
+        position: relative;
+      }
+
+      .route::before {
+        content: "";
+        position: absolute;
+        z-index: 4;
+        left: 3.1rem;
+        top: 0;
+        bottom: 0;
+        border-left: 2px dashed color-mix(in srgb, currentColor 30%, transparent);
+      }
+
+      .waypoint {
+        --brand: var(--blue);
+        --meta: var(--brand);
+        position: relative;
+        min-height: 95svh;
+        display: flex;
+        align-items: center;
+        padding: 6rem clamp(2rem, 6vw, 6rem) 6rem 7rem;
+        border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+      }
+
+      .waypoint::before {
+        content: attr(data-number);
+        position: absolute;
+        z-index: 5;
+        left: 2.25rem;
+        top: 50%;
+        display: grid;
+        width: 1.7rem;
+        aspect-ratio: 1;
+        place-items: center;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        font-size: 0.58rem;
+        font-weight: 800;
+        box-shadow: 0 0 0 2px var(--brand);
+        transform: translateY(-50%);
+      }
+
+      .waypoint.is-active::before {
+        box-shadow: 0 0 0 0.65rem color-mix(in srgb, var(--brand) 23%, transparent);
+      }
+
+      .waypoint-inner {
+        width: 100%;
+        max-width: 850px;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        color: var(--meta);
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .brand-lockup {
+        width: max-content;
+        max-width: 100%;
+        min-height: 5.5rem;
+        display: flex;
+        align-items: center;
+        margin: 2rem 0 2.5rem;
+        padding: 0.8rem 1rem;
+        border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+        background: #fff;
+      }
+
+      .brand-lockup img {
+        display: block;
+        width: auto;
+        max-width: min(18rem, 60vw);
+        height: auto;
+        max-height: 5.5rem;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .brand-lockup--airasia {
+        width: 8.5rem;
+        height: 8.5rem;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+
+      .brand-lockup--airasia img {
+        width: 7.4rem;
+        max-height: none;
+      }
+
+      .education-mark,
+      .independent-mark {
+        width: 6.5rem;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        margin: 2rem 0;
+        border: 2px solid;
+        border-radius: 50%;
+        font-family: "Archivo Black", sans-serif;
+        font-size: 1.25rem;
+        letter-spacing: -0.04em;
+      }
+
+      .waypoint h2 {
+        max-width: 11ch;
+        margin: 1.4rem 0;
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(3.2rem, 6vw, 6.2rem);
+        font-weight: 400;
+        line-height: 0.82;
+        letter-spacing: -0.065em;
+        text-transform: uppercase;
+      }
+
+      .waypoint h3 {
+        margin: 0.6rem 0;
+        font-size: 1.45rem;
+      }
+
+      .waypoint p {
+        max-width: 48rem;
+        font-size: 1.06rem;
+        line-height: 1.65;
+      }
+
+      .detail-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+
+      .detail-list span {
+        padding: 0.42rem 0.68rem;
+        border: 1px solid;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .degree {
+        --brand: #ff8b81;
+        --meta: #ff9d95;
+        background: #172255;
+        color: #f6f2e9;
+      }
+
+      .brand-telkom {
+        --brand: #e1262f;
+        --meta: #b51f27;
+        background: #f1eee8;
+        color: #191919;
+      }
+
+      .brand-accelbyte {
+        --brand: #9cd0ff;
+        --meta: #dbeeff;
+        background: #0b6cff;
+        color: #fff;
+      }
+
+      .brand-freelance {
+        --brand: #172255;
+        --meta: #172255;
+        background: #ffd84a;
+        color: #172255;
+      }
+
+      .brand-airasia {
+        --brand: #fff;
+        --meta: #fff;
+        background: #e31b23;
+        color: #fff;
+      }
+
+      .brand-lottie {
+        --brand: #075b4b;
+        --meta: #075b4b;
+        background: #00ddb3;
+        color: #073b33;
+      }
+
+      .projects-stop {
+        --brand: #f1c56b;
+        --meta: #f1c56b;
+        background: #111827;
+        color: #fff;
+      }
+
+      .product-stories {
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.35);
+      }
+
+      .product-story {
+        display: grid;
+        grid-template-columns: minmax(10rem, 0.7fr) 1.3fr;
+        gap: clamp(1.5rem, 4vw, 4rem);
+        align-items: start;
+        padding: 2.4rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+      }
+
+      .product-logo {
+        min-height: 9rem;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        background: #0f192d;
+      }
+
+      .product-logo--dota {
+        background: #000;
+      }
+
+      .product-logo img {
+        display: block;
+        width: 100%;
+        max-width: 17rem;
+        height: auto;
+      }
+
+      .product-story h3 {
+        margin-top: 0;
+        font-family: "Archivo Black", sans-serif;
+        font-size: clamp(2.3rem, 4vw, 4rem);
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: -0.055em;
+        text-transform: uppercase;
+      }
+
+      .product-story p {
+        font-size: 0.98rem;
+      }
+
+      .product-links,
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        font-weight: 800;
+      }
+
+      .collab {
+        --brand: #2757f5;
+        --meta: #2757f5;
+        background: #dbe4ff;
+      }
+
+      .contact-stop {
+        --brand: #e31b23;
+        --meta: #e31b23;
+        min-height: 75svh;
+      }
+
+      .contact-stop h2 a {
+        color: #e31b23;
+      }
+
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .atlas { display: block; }
+        .cover {
+          position: relative;
+          height: auto;
+          min-height: 86svh;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .cover h1 { font-size: clamp(4rem, 12vw, 7rem); }
+        .waypoint { min-height: auto; padding-top: 7rem; padding-bottom: 7rem; }
+      }
+
+      @media (max-width: 600px) {
+        .cover { padding: 1rem; }
+        .cover-bottom { grid-template-columns: 1fr; }
+        .active-stamp { width: max-content; }
+        .route::before { left: 1.4rem; }
+        .waypoint { padding: 5rem 1rem 5rem 3.5rem; }
+        .waypoint::before { left: 0.55rem; }
+        .waypoint h2 { font-size: 3.35rem; }
+        .meta { flex-direction: column; }
+        .product-story { grid-template-columns: 1fr; }
+        .brand-lockup img { max-width: 70vw; }
+        .site-footer { flex-direction: column; }
+      }
+    </style>
   </head>
   <body>
-    <div class="number" ><h2 id="asu">wap. <hr class="line"/></h2></div>
-    <div class="container">
-      <section id="wrapper1">
-        <h1>
-          <p href="" class="typewrite" data-period="2000" data-type='[ "Hello.", "olá.", "привет", "你好 .", "Bonjour.", "こんにちは." ]'>
-            <span class="wrap"></span>
-          </p>
-        </h1>
-      </section>
-      <section>
-        <div class="wrapper2">
-          <h2>Who?</h2>
-          <h1>#WijayantoAbdurrahmanPrawirodirjo.</h1>
-          <h3>A rather long one isn't it? <br />
-            Earned a <span>Bachelor of Science in Information Technology</span> in 2018 from <a href="https://www.apu.edu.my/" target="_blank">Asia Pacific University</a>, Malaysia<br />
-              I have around <span>3 years of experience</span> as a software developer <br />
-              Currently working as a freelancer <br />
-              Interested in developing <span>web</span> and <span>mobile apps</span> <br />
-              A Googler <br />
-              Definitely a user of Stackoverflow (Stackoverflower?)<br />
-              Spends time on things outside of engineering, like hobbies, friends, and family <br />
-              I have no preference on tools, framework or languages as long as it gets the job done <br />
-              (Most of my work uses <span>JavaScript</span> + <span>React /(Native)</span> tho) <br />
-              Based in Yogyakarta ATM.
-          </h3>
+    <a class="skip-link" href="#route">Skip to experience</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <main class="atlas">
+      <aside class="cover">
+        <div class="cover-top"><a href="/">Wijayanto A.P.</a><span>Frontend Engineer · Indonesia</span></div>
+        <h1>Work across <em>products and teams.</em></h1>
+        <div class="cover-bottom">
+          <p>Professional experience across web, mobile, desktop, and design platforms—working in Indonesia, Malaysia, and remote teams.</p>
+          <div class="active-stamp">Follow<br />the timeline ↓</div>
         </div>
-      </section>
-      <section>
-        <div class="wrapper3">
-          <h2>Work.</h2>
-          <dl>
-            <dt><li>Codex powered by Telkom Indonesia, Jakarta</li></dt>
-            <dd>2018 - 2020.</dd>
-            <dd>-Developed various web apps to support Telkom DXB's recruitment process</dd>
-            <dt><li>Accelbyte, Yogyakarta</li></dt>
-            <dd>2021 - 2021.</dd>
-            <dd>-Contribute to Plus9 2.0 launch</dd>
-            <dt><li>What do I do now?</li></dt>
-            <dd>2021 - now.</dd>
-            <dd>-Freelance</dd>
-            <dd>-Developing various side projects (mobile and web based)!</dd>
-            <dt><li>What's next?</li></dt>
-            <dd>Looking forward to what the future holds (read as: e-mail me if you have an interesting opportunity ;) )
-            </dd>
-          </dl>
-          <p>PS: Checkout my LinkedIn below for more detailed information</p>
-        </div>
-      </section>
-      <section>
-        <div class="wrapper3">
-          <h2>Contact.</h2>
-          <h1>Get in <span>touch</span></h1>
-          <h3>
-            wijayanto.a.p@gmail.com
-          </h3>
-          <a href="https://www.linkedin.com/in/wijayantoap/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <div>
-          <a href="https://github.com/wijayantoap" target="_blank"><i class="fab fa-github-square"></i></a>
+      </aside>
+
+      <div class="route" id="route" data-track>
+        <section class="waypoint degree" data-number="00" data-track-item="education">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Education · 2015—2018</span><span>Kuala Lumpur, Malaysia</span></div>
+            <div class="education-mark" aria-hidden="true">APU</div>
+            <h2>Dual-degree education in Malaysia.</h2>
+            <h3>Bachelor’s degree, Information Technology</h3>
+            <p>Asia Pacific University of Technology &amp; Innovation, with Staffordshire University as the dual-degree partner institution · Grade 3.43 · Member of the APU Indonesian Student Society.</p>
           </div>
-          <div>
-            <a href="https://play.google.com/store/apps/dev?id=8601537896599354929" target="_blank"><i class="fab fa-google-play"></i></a>
+        </section>
+
+        <section class="waypoint brand-telkom" data-number="01" data-track-item="jakarta">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Jakarta · 2018—2020</span><span>CODEX powered by Telkom Indonesia</span></div>
+            <div class="brand-lockup"><img src="/assets/logos/telkom.png" alt="Telkom Indonesia logo" /></div>
+            <h2>Enterprise frontend development.</h2>
+            <h3>Front End Developer</h3>
+            <p>Built frontend features for HR management, assessment, and job portal products, working with business, product, and backend teams.</p>
+            <div class="detail-list"><span>React</span><span>GraphQL</span><span>Testing</span><span>Accessibility</span></div>
           </div>
-        </div>
-      </section>
-    </div>
-  <script>
-    var TxtType = function(el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
+        </section>
 
-    const colors = ["#FFD700", "blue", "red", "yellow" , "orange", "white"]
+        <section class="waypoint brand-accelbyte" data-number="02" data-track-item="yogyakarta">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Yogyakarta · Mar—Jun 2021</span><span>AccelByte</span></div>
+            <div class="brand-lockup"><img src="/assets/logos/accelbyte.svg" alt="AccelByte logo" /></div>
+            <h2>Web and desktop interfaces.</h2>
+            <h3>Software Engineer</h3>
+            <p>Developed and maintained web and desktop applications with React, TypeScript, and Electron while collaborating with UX and visual designers.</p>
+            <div class="detail-list"><span>TypeScript</span><span>React</span><span>Electron</span></div>
+          </div>
+        </section>
 
-    TxtType.prototype.tick = function() {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
+        <section class="waypoint brand-freelance" data-number="03" data-track-item="remote-one">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Remote · Jan 2021—Apr 2022</span><span>Independent work</span></div>
+            <div class="independent-mark" aria-hidden="true">W/AP</div>
+            <h2>Remote product delivery.</h2>
+            <h3>Freelance Software Developer</h3>
+            <p>Developed websites and mobile applications while working remotely with product managers, designers, and other developers.</p>
+            <div class="detail-list"><span>Web</span><span>React Native</span><span>Remote collaboration</span></div>
+          </div>
+        </section>
 
-        if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
+        <section class="waypoint brand-airasia" data-number="04" data-track-item="kuala-lumpur">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Kuala Lumpur · Mar 2022—Aug 2024</span><span>AirAsia</span></div>
+            <div class="brand-lockup brand-lockup--airasia"><img src="/assets/logos/airasia.webp" alt="AirAsia logo" /></div>
+            <h2>Delivery and e-hailing products.</h2>
+            <h3>Software Engineer</h3>
+            <p>Contributed to AirAsia SuperApp Food and Ride experiences with React and React Native while collaborating across multiple Agile teams.</p>
+            <div class="detail-list"><span>Web + mobile</span><span>React Native</span><span>Cross-team Agile</span></div>
+          </div>
+        </section>
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        <section class="waypoint brand-lottie" data-number="05" data-track-item="remote-now">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Remote · Sep 2024—Present</span><span>LottieFiles</span></div>
+            <div class="brand-lockup"><img src="/assets/logos/lottiefiles.svg" alt="LottieFiles logo" /></div>
+            <h2>Plugins across design platforms.</h2>
+            <h3>Frontend Engineer</h3>
+            <p>Building and maintaining plugins across multiple design platforms, specializing in frontend development with React and TypeScript.</p>
+            <div class="detail-list"><span>React</span><span>TypeScript</span><span>Design platforms</span></div>
+          </div>
+        </section>
 
-        var that = this;
-        var delta = 200 - Math.random() * 100;
+        <section class="waypoint projects-stop" data-number="06" data-track-item="independent">
+          <div class="waypoint-inner">
+            <div class="meta" data-reveal><span>Independent products</span><span>Co-built + solo-built</span></div>
+            <h2 data-reveal>Products I helped create.</h2>
+            <div class="product-stories">
+              <article class="product-story" data-reveal>
+                <div class="product-logo"><img src="/assets/logos/gag101.png" alt="GAG101 logo" /></div>
+                <div>
+                  <h3>GAG101</h3>
+                  <p>A positive web and Android meme community with uploads, reactions, comments, saved posts, feed preferences, badges, and leaderboards. The Android app has reached more than 10,000 downloads.</p>
+                  <div class="product-links"><a href="https://gag101.com/" target="_blank" rel="noreferrer">Visit GAG101 ↗</a><a href="https://play.google.com/store/apps/details?id=com.gag101.gag101mobile" target="_blank" rel="noreferrer">Android app ↗</a></div>
+                </div>
+              </article>
 
-        if (this.isDeleting) { delta /= 2; }
+              <article class="product-story" data-reveal>
+                <div class="product-logo product-logo--dota"><img src="/assets/logos/dotacaptain.webp" alt="DotaCaptain logo" /></div>
+                <div>
+                  <h3>Dota Captain</h3>
+                  <p>I built DotaCaptain to make Dota 2 Captain’s Mode drafting easier to practice in a browser. It began as an AI draft sandbox and expanded through player feedback.</p>
+                  <p>As the solo developer, I have owned product and game design, frontend development, multiplayer state, simulation logic, infrastructure, and public development notes.</p>
+                  <div class="product-links"><a href="https://dotacaptain.com/" target="_blank" rel="noreferrer">Open DotaCaptain ↗</a><a href="https://dotacaptain.com/blog" target="_blank" rel="noreferrer">Development story ↗</a></div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
-        if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-        console.log(i)
-        document.getElementById("wrapper1").style.backgroundColor = colors[i]
-        document.getElementById("wrapper1").style.transition = 'background-color 1s linear';
-        }
+        <section class="waypoint collab" data-number="07" data-track-item="practice">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Cross-cultural collaboration</span><span>Locations + disciplines</span></div>
+            <h2>Experience across teams and cultures.</h2>
+            <p>My background includes studying and working in Malaysia, working in Jakarta and Yogyakarta, and collaborating remotely. I have worked with product managers, designers, backend engineers, and frontend developers across Agile teams and independent projects.</p>
+            <div class="detail-list"><span>Indonesia</span><span>Malaysia</span><span>Remote teams</span><span>Product + design + engineering</span></div>
+          </div>
+        </section>
 
+        <section class="waypoint contact-stop" data-number="08" data-track-item="next">
+          <div class="waypoint-inner" data-reveal>
+            <div class="meta"><span>Contact</span><span>Professional links</span></div>
+            <h2>Discuss a product or <a href="mailto:wijayanto.a.p@gmail.com">frontend role.</a></h2>
+            <div class="links"><a href="mailto:wijayanto.a.p@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/wijayantoap/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/wijayantoap" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+            <footer class="site-footer"><span>© <span data-year></span> Wijayanto A.P.</span><span>Frontend Engineer · Indonesia</span></footer>
+          </div>
+        </section>
+      </div>
+    </main>
 
-        setTimeout(function() {
-        that.tick();
-        }, delta);
-    };
-
-    window.onload = function() {
-        var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
-            }
-        }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-        document.body.appendChild(css);
-    };
-  </script>
+    <script src="/concepts/common.js"></script>
   </body>
 </html>
