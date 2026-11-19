@@ -30,6 +30,10 @@ const assetSpecs = [
   ["/concepts/05", "concepts/05/index.html", "text/html; charset=utf-8", false],
   ["/concepts/05/", "concepts/05/index.html", "text/html; charset=utf-8", false],
   ["/concepts/05/index.html", "concepts/05/index.html", "text/html; charset=utf-8", false],
+  ["/robots.txt", "robots.txt", "text/plain; charset=utf-8", false],
+  ["/sitemap.xml", "sitemap.xml", "application/xml; charset=utf-8", false],
+  ["/assets/logos/gag101.webp", "assets/logos/gag101.webp", "image/webp", true],
+  ["/assets/media/wijayanto-portrait.webp", "assets/media/wijayanto-portrait.webp", "image/webp", true],
   ["/favicon.ico", "favicon.ico", "image/x-icon", true],
   ["/og.png", "og.png", "image/png", true],
   ["/og-atlas.png", "og-atlas.png", "image/png", true],
@@ -57,6 +61,7 @@ const paperTypes = {
   webp: "image/webp",
   jpg: "image/jpeg",
   ttf: "font/ttf",
+  woff2: "font/woff2",
   txt: "text/plain; charset=utf-8"
 };
 for (const name of await readdir(resolve(projectRoot, "assets/paper"))) {

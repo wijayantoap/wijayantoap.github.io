@@ -4,21 +4,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#86c8f5">
-  <meta name="description" content="Wijayanto A.P. is a frontend engineer based in Indonesia who turns designs into accessible websites and mobile apps.">
-  <meta property="og:title" content="Wijayanto’s Paper Trail · Frontend engineer">
-  <meta property="og:description" content="I’m a frontend engineer based in Indonesia. I turn designs into accessible websites and mobile apps.">
+  <title>Wijayanto A.P. | Frontend Engineer in Indonesia · Paper Trail</title>
+  <meta name="description" content="Explore Wijayanto A.P.’s frontend engineering experience across web, mobile, and desktop. Walk through his portfolio or jump directly to his work history.">
+  <link rel="canonical" href="https://wijayantoap.github.io/">
+  <meta property="og:title" content="Wijayanto A.P. · Frontend Engineer · Paper Trail">
+  <meta property="og:description" content="A paper-world walk through my work as a frontend engineer across web, mobile, and desktop.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wijayantoap.github.io/">
   <meta property="og:image" content="https://wijayantoap.github.io/assets/paper/share.jpg?v=storycast2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wijayanto’s illustrated Paper Trail portfolio">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Wijayanto’s Paper Trail · Frontend engineer</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://wijayantoap.github.io/",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Wijayanto A.P.",
+      "jobTitle": "Frontend Engineer",
+      "url": "https://wijayantoap.github.io/",
+      "image": "https://wijayantoap.github.io/assets/media/wijayanto-portrait.webp",
+      "sameAs": ["https://github.com/wijayantoap", "https://www.linkedin.com/in/wijayantoap/"]
+    }
+  }
+  </script>
   <link rel="icon" href="/favicon.ico">
+  <link rel="preload" href="/assets/paper/sidewalk.webp" as="image" fetchpriority="high">
   <link rel="preload" href="/assets/paper/title-paper-trail.webp" as="image">
   <link rel="preload" href="/assets/paper/guide-welcome.webp" as="image">
-  <link rel="preload" href="/assets/paper/nunito.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/assets/paper/nunito.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/paper/jakarta.webp" as="image" media="(aspect-ratio > 1)">
   <link rel="preload" href="/assets/paper/jakarta-mobile.webp" as="image" media="(max-aspect-ratio: 1/1)">
-  <link rel="stylesheet" href="/css/main.css?v=deskcat1">
-  <script type="module" src="/js/main.js?v=wheel1"></script>
+  <link rel="stylesheet" href="/css/main.css?v=trail2">
+  <link rel="modulepreload" href="/js/paper-toys.js?v=cast1">
+  <link rel="modulepreload" href="/js/cast.js?v=cast1">
+  <script type="module" src="/js/main.js?v=trail2"></script>
 </head>
 <body>
   <a class="skip" href="#about">Skip the paper journey</a>
@@ -26,7 +49,7 @@
     <div class="journey">
       <div class="theatre">
         <header class="stage-header">
-          <a class="wordmark" href="#welcome" aria-label="Wijayanto A.P., home">W/AP</a>
+          <a class="wordmark" href="#welcome" aria-label="W/AP, Wijayanto A.P. home">W/AP</a>
           <nav aria-label="Main navigation">
             <details class="contents">
               <summary>Journey <span aria-hidden="true">⌄</span></summary>
@@ -37,10 +60,10 @@
                 <a href="#lottiefiles">LottieFiles</a>
                 <a href="#dotacaptain">DotaCaptain</a><a href="#gag101">GAG101</a>
                 <a href="#frontierra">Frontierra Studio</a>
-                <label class="sky-setting" hidden><input type="checkbox" checked>Animate the scenery and cast</label>
+                <label class="sky-setting" hidden><input type="checkbox" checked>Play idle animations</label>
               </div>
             </details>
-            <a href="#about">About</a><a href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+            <a href="#experience-title">Experience</a><a href="#contact">Say hello <span aria-hidden="true">↗</span></a>
           </nav>
         </header>
         <div class="pages">
@@ -56,11 +79,12 @@
                 <span class="marquee-byline">Wijayanto’s</span>
                 <img src="/assets/paper/title-paper-trail.webp" width="1050" height="278" alt="Paper Trail" fetchpriority="high">
               </h1>
-              <p class="opening-note">I’m a frontend engineer based in Indonesia. I build accessible websites and mobile apps with international teams. I’ve worked remotely and in offices in Indonesia and Malaysia.</p>
+              <p class="opening-note">I’m a frontend engineer based in Indonesia. Since 2018, I’ve built interfaces for the web, mobile, and desktop, with a focus on accessibility.</p>
             </div>
-            <a class="trail-sign" href="#university" aria-label="Start walking to university in Kuala Lumpur">
+            <a class="trail-sign" href="#university">
               <span class="trail-board">Start walking <span aria-hidden="true">→</span></span>
               <span class="trail-directions">Scroll or tap</span>
+              <span class="sr-only">Next stop, university in Kuala Lumpur.</span>
             </a>
           </section>
           <section class="scene history campus" id="university" data-name="University" aria-labelledby="university-title">
@@ -77,8 +101,8 @@
               <h2 id="university-title">First stop, KL<span>.</span></h2>
               <p class="chapter-line">I earned a dual bachelor’s degree in Information Technology from APU and Staffordshire University, specializing in <strong>Business Information Systems</strong>. Outside class, I was part of APU’s Indonesian Student Society.</p>
             </div>
-            <div class="diorama"><div class="paper-model" style="--model-ratio:670 / 509"><img class="landmark" src="/assets/paper/campus-landmark.webp" width="670" height="509" alt=""></div></div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/apu.webp" alt=""><img src="/assets/logos/staffordshire.webp" alt=""></div></div>
+            <div class="diorama"><div class="paper-model" style="--model-ratio:670 / 509"><img loading="lazy" class="landmark" src="/assets/paper/campus-landmark.webp" width="670" height="509" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/apu.webp" width="377" height="353" alt=""><img loading="lazy" src="/assets/logos/staffordshire.webp" width="281" height="360" alt=""></div></div>
           </section>
           <section class="scene history telkom" id="telkom" data-name="Telkom Indonesia" aria-labelledby="telkom-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-telkom.webp" width="300" height="300" loading="lazy" alt="Wijayanto in a navy suit and red tie, with a brown work satchel."></span>
@@ -96,8 +120,8 @@
               <h2 id="telkom-title">You hit Apply<span>.</span></h2>
               <p class="chapter-line">At CODEX in Jakarta, I helped build a <strong>job portal</strong> where people could find an opening and apply. I also worked on candidate assessments and software for the HR team’s day-to-day work.</p>
             </div>
-            <div class="diorama"><div class="paper-model" style="--model-ratio:655 / 618"><img class="landmark" src="/assets/paper/telkom-landmark.webp" width="655" height="618" alt=""></div></div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/telkom-sign.webp" alt=""></div></div>
+            <div class="diorama"><div class="paper-model" style="--model-ratio:655 / 618"><img loading="lazy" class="landmark" src="/assets/paper/telkom-landmark.webp" width="655" height="618" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/telkom-sign.webp" width="550" height="135" alt=""></div></div>
           </section>
           <section class="scene history freelance" id="freelance" data-name="Freelance" aria-labelledby="freelance-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-freelance.webp?v=hands1" width="300" height="300" loading="lazy" alt="Wijayanto in a soft hoodie and a rust-colored knit beanie."></span>
@@ -111,7 +135,7 @@
               <h2 id="freelance-title">My freelance desk<span>.</span></h2>
               <p class="chapter-line">Some clients needed a website, others needed a mobile app. I built both while working remotely with <strong>designers, product managers, and developers</strong>.</p>
             </div>
-            <div class="diorama"><div class="paper-model" style="--model-ratio:650 / 538"><img class="landmark" src="/assets/paper/freelance-landmark.webp" width="650" height="538" alt=""></div></div>
+            <div class="diorama"><div class="paper-model" style="--model-ratio:650 / 538"><img loading="lazy" class="landmark" src="/assets/paper/freelance-landmark.webp" width="650" height="538" alt=""></div></div>
             <div class="signpost" aria-hidden="true"><div class="sign-blade"><b class="signature">W/AP</b></div></div>
           </section>
           <section class="scene history accelbyte" id="accelbyte" data-name="AccelByte" aria-labelledby="accelbyte-title">
@@ -133,8 +157,8 @@
               <h2 id="accelbyte-title">Beyond the browser<span>.</span></h2>
               <p class="chapter-line">When I joined AccelByte in Yogyakarta, I took my web development skills to the desktop. I built <strong>desktop apps with Electron</strong> alongside our web apps, working directly with UX and visual designers on both.</p>
             </div>
-            <div class="diorama"><div class="paper-model" style="--model-ratio:720 / 573"><img class="landmark" src="/assets/paper/accelbyte-landmark.webp" width="720" height="573" alt=""></div></div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/accelbyte.svg" alt=""></div></div>
+            <div class="diorama"><div class="paper-model" style="--model-ratio:720 / 573"><img loading="lazy" class="landmark" src="/assets/paper/accelbyte-landmark.webp" width="720" height="573" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/accelbyte.svg" width="188" height="40" alt=""></div></div>
           </section>
           <section class="scene history airasia" id="airasia" data-name="AirAsia" aria-labelledby="airasia-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-airasia.webp" width="300" height="300" loading="lazy" alt="Wijayanto in a red travel jacket with a blue backpack."></span>
@@ -152,8 +176,8 @@
               <h2 id="airasia-title">Lunch or a lift<span>?</span></h2>
               <p class="chapter-line">I returned to Kuala Lumpur, the city where I’d studied, to join AirAsia. I helped build the parts of the SuperApp people used to <strong>order food and book rides</strong>.</p>
             </div>
-            <div class="diorama"><div class="paper-model" style="--model-ratio:720 / 616"><img class="landmark" src="/assets/paper/airasia-landmark.webp" width="720" height="616" alt=""></div></div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/airasia.webp" alt=""></div></div>
+            <div class="diorama"><div class="paper-model" style="--model-ratio:720 / 616"><img loading="lazy" class="landmark" src="/assets/paper/airasia-landmark.webp" width="720" height="616" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/airasia.webp" width="800" height="800" alt=""></div></div>
           </section>
           <section class="scene studio project" id="lottiefiles" data-name="LottieFiles" aria-labelledby="lottie-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-lottiefiles.webp" width="300" height="300" loading="lazy" alt="Wijayanto in a lilac studio jacket, with a sketchbook and a pencil tucked above his ear."></span>
@@ -181,7 +205,7 @@
                 <span class="sr-only flight-status" role="status"></span>
               </div>
             </div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/lottiefiles-sign.svg" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/lottiefiles-sign.svg" width="340" height="82" alt=""></div></div>
           </section>
           <section class="scene arena project" id="dotacaptain" data-name="DotaCaptain" aria-labelledby="dota-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-dotacaptain.webp" width="300" height="300" loading="lazy" alt="Wijayanto in a violet adventurer’s cape with a gold clasp and brown boots."></span>
@@ -204,13 +228,13 @@
             <div class="prop draft">
               <p class="paper-caption">Choose a hero</p>
               <div class="hero-cards" role="group" aria-label="Choose a hero">
-                <button type="button" data-hero="Axe" aria-pressed="false"><img src="/assets/paper/axe.webp" alt=""><span>Axe</span></button>
-                <button type="button" data-hero="Drow Ranger" aria-pressed="false"><img src="/assets/paper/drow.webp" alt=""><span>Drow Ranger</span></button>
-                <button type="button" data-hero="Puck" aria-pressed="false"><img src="/assets/paper/puck.webp" alt=""><span>Puck</span></button>
+                <button type="button" data-hero="Axe" aria-pressed="false"><img loading="lazy" src="/assets/paper/axe.webp" width="384" height="384" alt=""><span>Axe</span></button>
+                <button type="button" data-hero="Drow Ranger" aria-pressed="false"><img loading="lazy" src="/assets/paper/drow.webp" width="384" height="384" alt=""><span>Drow Ranger</span></button>
+                <button type="button" data-hero="Puck" aria-pressed="false"><img loading="lazy" src="/assets/paper/puck.webp" width="384" height="384" alt=""><span>Puck</span></button>
               </div>
               <p class="draft-status" aria-live="polite"></p>
             </div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/dotacaptain.webp" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/dotacaptain.webp" width="400" height="205" alt=""></div></div>
           </section>
           <section class="scene printshop project" id="gag101" data-name="GAG101" aria-labelledby="gag-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-gag101.webp" width="300" height="300" loading="lazy" alt="Wijayanto in a yellow printmaker’s apron, striped shirt, and blue beret."></span>
@@ -232,13 +256,13 @@
             </div>
             <div class="prop posters">
               <div class="poster-pile"><div class="poster-stack">
-                <figure class="poster"><img src="/assets/paper/meme-change.webp" alt="A tiny duck underneath a teetering tower of boxes."><figcaption><span>“It’s a small change.”</span><strong>The change:</strong></figcaption></figure>
-                <figure class="poster"><img src="/assets/paper/meme-machine.webp" alt="A raccoon pedaling a wheel to power a laptop."><figcaption><span>Works on my machine.</span><strong>My machine:</strong></figcaption></figure>
-                <figure class="poster"><img src="/assets/paper/meme-tabs.webp" alt="A cat peeking out from under a pile of browser windows."><figcaption><span>One quick fix.</span><strong>Seventeen tabs later.</strong></figcaption></figure>
+                <figure class="poster"><img loading="lazy" src="/assets/paper/meme-change.webp" width="600" height="324" alt="A tiny duck underneath a teetering tower of boxes."><figcaption><span>“It’s a small change.”</span><strong>The change:</strong></figcaption></figure>
+                <figure class="poster"><img loading="lazy" src="/assets/paper/meme-machine.webp" width="600" height="324" alt="A raccoon pedaling a wheel to power a laptop."><figcaption><span>Works on my machine.</span><strong>My machine:</strong></figcaption></figure>
+                <figure class="poster"><img loading="lazy" src="/assets/paper/meme-tabs.webp" width="600" height="324" alt="A cat peeking out from under a pile of browser windows."><figcaption><span>One quick fix.</span><strong>Seventeen tabs later.</strong></figcaption></figure>
               </div>
               <button type="button" class="swap" aria-label="Show the next meme" title="Show the next meme" hidden><span aria-hidden="true">Flip ↻</span></button></div>
             </div>
-            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img src="/assets/logos/gag101.png" alt=""></div></div>
+            <div class="signpost" aria-hidden="true"><div class="sign-blade"><img loading="lazy" src="/assets/logos/gag101.webp" width="368" height="198" alt=""></div></div>
           </section>
           <section class="scene frontierra project" id="frontierra" data-name="Frontierra Studio" aria-labelledby="frontierra-title">
             <span class="guide-figure"><img class="still-guide" src="/assets/paper/guide-frontierra.webp" width="300" height="300" loading="lazy" alt="Wijayanto in a rust leather apron and a brass-studded blue cap."></span>
@@ -278,17 +302,17 @@
         <div class="bio">
           <h2 id="about-title">Behind the paper<span>.</span></h2>
           <figure class="profile-print">
-            <img src="/assets/media/wijayanto-portrait-bw.jpg" width="300" height="300" loading="lazy" alt="Portrait of Wijayanto A.P.">
+            <img src="/assets/media/wijayanto-portrait.webp" width="300" height="300" loading="lazy" alt="Portrait of Wijayanto A.P.">
             <figcaption>Wijayanto A.P.</figcaption>
           </figure>
-          <p>I’ve worked in-house and as a freelancer, collaborating in person and remotely with international teams. My work spans web, mobile, and desktop development, from working through a design with teammates to maintaining an interface after release.</p>
+          <p>I’ve worked in offices in Jakarta and Kuala Lumpur and remotely from Indonesia. Across in-house and freelance teams, I work with designers and backend engineers from different countries, from the first design review through release and maintenance.</p>
         </div>
         <div class="career">
           <section aria-labelledby="experience-title">
             <h3 id="experience-title">Work experience</h3>
             <ol class="work-list">
             <li class="work-ticket work-lottiefiles">
-              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/lottiefiles-sign.svg" loading="lazy" alt=""></span>
+              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/lottiefiles-sign.svg" loading="lazy" width="340" height="82" alt=""></span>
               <div class="work-detail">
                 <div class="work-heading"><h4><a href="#lottiefiles">LottieFiles<span class="sr-only">, visit the chapter</span></a></h4><span class="work-dates">Sep 2024 – present</span></div>
                 <p class="work-role">Frontend Engineer <span>· Full-time · Indonesia, remote</span></p>
@@ -299,7 +323,7 @@
               </div>
             </li>
             <li class="work-ticket work-airasia">
-              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/airasia.webp" loading="lazy" alt=""></span>
+              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/airasia.webp" loading="lazy" width="800" height="800" alt=""></span>
               <div class="work-detail">
                 <div class="work-heading"><h4><a href="#airasia">AirAsia<span class="sr-only">, visit the chapter</span></a></h4><span class="work-dates">Mar 2022 – Aug 2024</span></div>
                 <p class="work-role">Software Engineer <span>· Full-time · Kuala Lumpur, Malaysia</span></p>
@@ -321,7 +345,7 @@
               </div>
             </li>
             <li class="work-ticket work-accelbyte">
-              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/accelbyte.svg" loading="lazy" alt=""></span>
+              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/accelbyte.svg" loading="lazy" width="188" height="40" alt=""></span>
               <div class="work-detail">
                 <div class="work-heading"><h4><a href="#accelbyte">AccelByte Inc<span class="sr-only">, visit the chapter</span></a></h4><span class="work-dates">Mar 2021 – Jun 2021</span></div>
                 <p class="work-role">Software Engineer <span>· Yogyakarta, Indonesia</span></p>
@@ -332,7 +356,7 @@
               </div>
             </li>
             <li class="work-ticket work-telkom">
-              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/telkom-sign.webp" loading="lazy" alt=""></span>
+              <span class="employer-mark" aria-hidden="true"><img src="/assets/logos/telkom-sign.webp" loading="lazy" width="550" height="135" alt=""></span>
               <div class="work-detail">
                 <div class="work-heading"><h4><a href="#telkom">CODEX powered by Telkom Indonesia<span class="sr-only">, visit the chapter</span></a></h4><span class="work-dates">Dec 2018 – Dec 2020</span></div>
                 <p class="work-role">Front End Developer <span>· Full-time · Jakarta, Indonesia</span></p>
@@ -350,13 +374,13 @@
               <h4><a href="#university">Dual bachelor’s degree in Information Technology</a></h4>
               <p>Specialism in Business Information Systems</p>
               <ul class="degree-schools">
-                <li><img src="/assets/logos/apu.webp" loading="lazy" alt="">
+                <li><img src="/assets/logos/apu.webp" loading="lazy" width="377" height="353" alt="">
                   <div><h5>Asia Pacific University of Technology and Innovation (APU / APIIT)</h5>
                     <p class="degree-dates">Sep 2015 – Nov 2018 · Kuala Lumpur, Malaysia</p>
                     <p>Grade 3.43 · Asia Pacific University Indonesian Student Society</p>
                   </div>
                 </li>
-                <li><img src="/assets/logos/staffordshire.webp" loading="lazy" alt="">
+                <li><img src="/assets/logos/staffordshire.webp" loading="lazy" width="281" height="360" alt="">
                   <div><h5>University of Staffordshire</h5>
                     <p class="degree-dates">2015 – 2018 · United Kingdom</p>
                   </div>

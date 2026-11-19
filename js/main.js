@@ -16,6 +16,7 @@ const pages = theatre.querySelector('.pages');
 const wardrobe = scenes.map(scene => scene.querySelector('.still-guide'));
 const [outfitBefore, outfitAfter] = walker.querySelectorAll('.costume-layer');
 const cards = [...theatre.querySelectorAll('.hero-cards button')];
+const readingSections = [...document.querySelectorAll('#about, .work-ticket, .education-block, #contact')];
 function makeFold(scene, side) {
   const leaf = document.createElement('div');
   leaf.className = 'book-fold fold-' + side;
@@ -37,6 +38,10 @@ const arriveAtScene = wireScenery(scenes, motion, reactCast);
 const landscape = matchMedia('(min-aspect-ratio: 1/1)');
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 let enhanced = false;
+let layoutWidth = 0;
+let layoutHeight = 0;
+let readingPlace = null;
+let readingHash = '';
 let step = 1;
 let last = 0;
 let current = -1;
@@ -60,9 +65,19 @@ let markers = [];
 let pendingChapter = -1;
 
 function focusHeading(section) {
-  const heading = section.querySelector('h1,h2');
+  const heading = section.matches('h1,h2,h3') ? section : section.querySelector('h1,h2,h3');
   heading.tabIndex = -1;
   heading.focus({preventScroll:true});
+}
+
+function prepareScene(index, priority = 'auto') {
+  const scene = scenes[index];
+  if (!scene || (scene.classList.contains('art-ready') && priority !== 'high')) return;
+  scene.classList.add('art-ready');
+  for (const image of scene.querySelectorAll('img')) {
+    if (priority !== 'auto') image.fetchPriority = priority;
+    image.loading = 'eager';
+  }
 }
 
 function ease(start, end, value) {
@@ -128,8 +143,8 @@ function changeCostume(index, fraction, guideX) {
   const nextIndex = Math.min(index + 1, wardrobe.length - 1);
   if (wardrobeIndex !== index) {
     wardrobeIndex = index;
-    wardrobe[index].loading = 'eager';
-    wardrobe[nextIndex].loading = 'eager';
+    prepareScene(index);
+    prepareScene(nextIndex, 'low');
   }
   const ready = i => wardrobe[i].complete && wardrobe[i].naturalWidth > 0;
   const boundary = ((1 - fraction - guideX / 100) * worldWidth / guideWidth + .5) * 100;
@@ -175,8 +190,22 @@ function kickUpDust(heelX, direction) {
 // to its standing pose without changing its place on the sidewalk.
 function render(now = performance.now()) {
   scheduled = false;
+  // A resize can deliver a scroll event while the new layout is still being measured.
+  if (innerWidth !== layoutWidth || innerHeight !== layoutHeight) return;
+  const bounds = journey.getBoundingClientRect();
+  const position = clamp(-bounds.top / step, 0, scenes.length - 1);
+  readingHash = location.hash;
+  if (bounds.bottom <= innerHeight / 2) {
+    const section = readingSections.findLast(el => el.getBoundingClientRect().top <= 1) || readingSections[0];
+    const box = section.getBoundingClientRect();
+    readingPlace = {section, fraction: -box.top / box.height};
+  } else if (enhanced) {
+    readingPlace = {chapter: position};
+  } else {
+    const chapter = scenes.findIndex(scene => scene.getBoundingClientRect().bottom > innerHeight / 2);
+    readingPlace = {chapter: chapter < 0 ? scenes.length - 1 : chapter};
+  }
   if (!enhanced) return;
-  const position = clamp(-journey.getBoundingClientRect().top / step, 0, scenes.length - 1);
   const index = Math.floor(position);
   const fraction = position - index;
   const nearest = Math.round(position);
@@ -245,7 +274,7 @@ function render(now = performance.now()) {
     }, 150);
   }
   changeCostume(index, fraction, guideX);
-  if (Math.abs(position - nearest) < .13) arriveAtScene(scenes[nearest]);
+  if (skyToggle.checked && Math.abs(position - nearest) < .13) arriveAtScene(scenes[nearest]);
   last = position;
   lastPaintTime = now;
 }
@@ -256,10 +285,13 @@ function scheduleRender() {
 
 function layout() {
   const wasEnhanced = enhanced;
-  const before = enhanced ? clamp(-journey.getBoundingClientRect().top / step,0,scenes.length-1) : 0;
-  const wasOnStage = enhanced && journey.getBoundingClientRect().top <= 0 && journey.getBoundingClientRect().bottom >= theatre.clientHeight;
+  const hash = location.hash;
+  const place = readingHash === hash ? readingPlace : null;
   // On short screens or with reduced motion, every chapter is a normal document section.
-  enhanced = !motion.matches && window.innerHeight >= 520;
+  enhanced = !motion.matches && innerHeight >= 520;
+  if (layoutWidth !== innerWidth || layoutHeight !== innerHeight || wasEnhanced !== enhanced) cancelTravel();
+  layoutWidth = innerWidth;
+  layoutHeight = innerHeight;
   if (enhanced !== wasEnhanced) {
     if (enhanced) {
       markers = scenes.map((scene,index) => {
@@ -277,22 +309,37 @@ function layout() {
       header.classList.remove('on-dark');
       pages.style.transform='';
       theatre.classList.remove('at-trailhead');
-      cancelTravel();
       current=-1;
     }
     document.documentElement.classList.toggle('ready',enhanced);
   }
-  if (!enhanced) return;
-  const stageHeight = theatre.clientHeight || window.innerHeight;
-  worldWidth = theatre.clientWidth;
-  scenes.forEach((scene,i) => scene.style.setProperty('--floor-x', -i * worldWidth + 'px'));
-  guideWidth = walker.clientWidth;
-  strideLength = Math.max(48, walker.clientHeight * .72);
-  step = Math.round(Math.max(stageHeight * .9, worldWidth * .72));
-  journey.style.setProperty('--journey-height',(stageHeight+step*(scenes.length-1)+Math.round(stageHeight*.22))+'px');
-  markers.forEach((marker,i)=>{marker.style.top=(i*step)+'px';});
-  if (wasOnStage && wasEnhanced) window.scrollTo({top:journey.offsetTop+before*step,behavior:'instant'});
-  render();
+  if (enhanced) {
+    const stageHeight = theatre.clientHeight || window.innerHeight;
+    worldWidth = theatre.clientWidth;
+    scenes.forEach((scene,i) => scene.style.setProperty('--floor-x', -i * worldWidth + 'px'));
+    guideWidth = walker.clientWidth;
+    strideLength = Math.max(48, walker.clientHeight * .72);
+    step = Math.round(Math.max(stageHeight * .9, worldWidth * .72));
+    journey.style.setProperty('--journey-height',(stageHeight+step*(scenes.length-1)+Math.round(stageHeight*.22))+'px');
+    markers.forEach((marker,i)=>{marker.style.top=(i*step)+'px';});
+  }
+  function restorePlace() {
+    if (hash !== location.hash) return;
+    if (place?.section) {
+      const box = place.section.getBoundingClientRect();
+      window.scrollBy({top:box.top + place.fraction * box.height,behavior:'instant'});
+    } else if (place && enhanced) {
+      window.scrollTo({top:journey.offsetTop + place.chapter * step,behavior:'instant'});
+    } else if (place && wasEnhanced) {
+      scenes[Math.round(place.chapter)].scrollIntoView({behavior:'instant',block:'start'});
+    } else if (hash && !place) {
+      document.getElementById(hash.slice(1))?.scrollIntoView({behavior:'instant',block:'start'});
+    }
+    render();
+  }
+  // Firefox resolves the new section offsets on the frame after removing the sticky stage.
+  if (wasEnhanced && !enhanced) requestAnimationFrame(restorePlace);
+  else restorePlace();
 }
 
 function cancelTravel() {
@@ -309,6 +356,7 @@ function go(id) {
   if (!target) return;
   cancelTravel();
   contents.open = false;
+  prepareScene(names.indexOf(id), 'high');
   if (location.hash !== '#' + id) history.pushState(null,'','#' + id);
   if (!enhanced || !names.includes(id) || journey.getBoundingClientRect().bottom < theatre.clientHeight) {
     target.scrollIntoView({behavior: motion.matches ? 'instant' : 'smooth', block:'start'});
@@ -335,7 +383,7 @@ document.addEventListener('click',event=>{
     const id=link.hash.slice(1);
     if(document.getElementById(id)){
       event.preventDefault();go(id);
-      if(id==='about'||id==='contact'){
+      if(id==='about'||id==='experience-title'||id==='contact'){
         focusHeading(document.getElementById(id));
       } else if(link.closest('.about, .return-sign, .chapter-list')) {
         const chapter = names.indexOf(id);
@@ -492,10 +540,11 @@ syncSkyMotion();
 
 window.addEventListener('scroll',scheduleRender,{passive:true});
 let resizeFrame=0;
-window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(layout);});
-motion.addEventListener('change',layout);
-layout();
-if(location.hash && names.includes(location.hash.slice(1))) {
-  document.getElementById(location.hash.slice(1)).scrollIntoView({behavior:'instant'});
-  render();
+function scheduleLayout() {
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame = requestAnimationFrame(layout);
 }
+window.addEventListener('resize',scheduleLayout);
+motion.addEventListener('change',scheduleLayout);
+prepareScene(names.indexOf(location.hash.slice(1)), 'high');
+layout();
