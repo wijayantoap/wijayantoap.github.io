@@ -86,6 +86,9 @@ function poseScene(i, offset) {
     : 1 - ease(.16, .88, offset);
   const landmark = opening(landscape.matches ? .59 : .46, .98);
   const post = opening(.22, .84);
+  if (scene.classList.contains('history')) {
+    scene.style.setProperty('--horizon-x', (i + offset) * worldWidth * .72 + 'px');
+  }
   scene.style.setProperty('--hinge', hinge(landmark) + 'deg');
   if (scene.querySelector('.diorama')) scene.style.setProperty('--lift',1 - landmark);
   scene.style.setProperty('--post-hinge', hinge(post) + 'deg');
@@ -179,7 +182,6 @@ function render(now = performance.now()) {
   const nearest = Math.round(position);
   const pixels = position * worldWidth;
   pages.style.transform = 'translate3d(' + (-pixels) + 'px,0,0)';
-  theatre.style.setProperty('--horizon-x', pixels * .72 + 'px');
   turnPaper(index, fraction);
 
   if (current !== nearest) {
@@ -403,32 +405,47 @@ for(const eventName of ['touchend','touchcancel']) theatre.addEventListener(even
 window.addEventListener('wheel',event=>{
   if (!theatre.contains(event.target)) cancelTravel();
 },{passive:true,capture:true});
-theatre.addEventListener('wheel',event=>{
-  if(!enhanced || event.ctrlKey || contents.open) { cancelTravel(); return; }
-  const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
-  const raw = horizontal ? event.deltaX : event.deltaY;
-  const coarse = event.deltaMode !== 0 || (Math.abs(raw) >= 80 && raw % 10 === 0);
-  const delta = raw * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? theatre.clientHeight : 1)
-    * (horizontal ? step / worldWidth : 1);
-  const origin = wheelFrame ? wheelTarget : window.scrollY;
-  cancelTravel();
-  if ((!horizontal && !coarse) || !event.cancelable) return;
-  const end = step * (scenes.length - 1) + journey.offsetTop;
-  if (horizontal && ((origin <= journey.offsetTop && delta < 0) || (origin >= end && delta > 0))) return;
-  event.preventDefault();
-  if (!coarse) { window.scrollBy({top:delta,behavior:'instant'}); return; }
-  wheelTarget = clamp(origin + delta, 0, horizontal ? end : document.documentElement.scrollHeight - innerHeight);
+
+function startWheelGlide(y) {
   let previous = performance.now();
-  let y = window.scrollY;
   function glide(now) {
     const remaining = wheelTarget - y;
-    const blend = 1 - Math.exp(-Math.max(0, now - previous) / 68);
+    // Follow small trackpad movements closely and spread a wheel notch over several frames.
+    const smoothingMs = clamp(Math.abs(remaining) * .5, 18, 72);
+    const decay = Math.exp(-Math.max(0, now - previous) / smoothingMs);
     previous = now;
-    y = Math.abs(remaining) < 1 ? wheelTarget : y + remaining * blend;
+    y = Math.abs(remaining) < .5 ? wheelTarget : wheelTarget - remaining * decay;
     window.scrollTo({top:y,behavior:'instant'});
-    wheelFrame = y !== wheelTarget ? requestAnimationFrame(glide) : 0;
+    wheelFrame = y === wheelTarget ? 0 : requestAnimationFrame(glide);
   }
   wheelFrame = requestAnimationFrame(glide);
+}
+
+theatre.addEventListener('wheel',event=>{
+  if (!enhanced || event.ctrlKey || contents.open || !event.cancelable) { cancelTravel(); return; }
+  const mode = event.deltaMode;
+  const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+  const raw = horizontal ? event.deltaX : event.deltaY;
+  if (!raw) return;
+  const pageSize = horizontal ? worldWidth : theatre.clientHeight;
+  const unit = mode === WheelEvent.DOM_DELTA_LINE ? 16 : mode === WheelEvent.DOM_DELTA_PAGE ? pageSize : 1;
+  const delta = raw * unit * (horizontal ? step / worldWidth : 1);
+  const y = window.scrollY;
+  const min = horizontal ? journey.offsetTop : 0;
+  const max = horizontal ? min + step * (scenes.length - 1) : document.documentElement.scrollHeight - innerHeight;
+  if ((y <= min + .5 && delta < 0) || (y >= max - .5 && delta > 0)) {
+    cancelTravel();
+    return;
+  }
+  event.preventDefault();
+  // Keep subpixel input across rounded scroll positions. Discard queued travel on reversal.
+  const pending = wheelTarget - y;
+  const keepTarget = Math.abs(pending) < 1 || (wheelFrame !== 0 && pending * delta > 0);
+  wheelTarget = clamp((keepTarget ? wheelTarget : y) + delta, min, max);
+  if (!wheelFrame) {
+    cancelTravel();
+    startWheelGlide(y);
+  }
 },{passive:false});
 
 const picks={Axe:'Your front line is ready.','Drow Ranger':'Your lineup has ranged damage.',Puck:'Your lineup can initiate a fight.'};
