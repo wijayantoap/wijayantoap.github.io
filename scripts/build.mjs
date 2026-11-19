@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const projectRoot = resolve(import.meta.dirname, "..");
@@ -9,6 +9,8 @@ const assetSpecs = [
   ["/index.html", "index.html", "text/html; charset=utf-8", false],
   ["/css/main.css", "css/main.css", "text/css; charset=utf-8", false],
   ["/js/main.js", "js/main.js", "text/javascript; charset=utf-8", false],
+  ["/js/paper-toys.js", "js/paper-toys.js", "text/javascript; charset=utf-8", false],
+  ["/js/cast.js", "js/cast.js", "text/javascript; charset=utf-8", false],
   ["/concepts", "concepts/01/index.html", "text/html; charset=utf-8", false],
   ["/concepts/", "concepts/01/index.html", "text/html; charset=utf-8", false],
   ["/concepts/common.css", "concepts/common.css", "text/css; charset=utf-8", false],
@@ -31,11 +33,16 @@ const assetSpecs = [
   ["/favicon.ico", "favicon.ico", "image/x-icon", true],
   ["/og.png", "og.png", "image/png", true],
   ["/og-atlas.png", "og-atlas.png", "image/png", true],
+  ["/assets/logos/apu.webp", "assets/logos/apu.webp", "image/webp", true],
+  ["/assets/logos/staffordshire.webp", "assets/logos/staffordshire.webp", "image/webp", true],
+  ["/assets/logos/lottiefiles-sign.svg", "assets/logos/lottiefiles-sign.svg", "image/svg+xml", false],
+  ["/assets/logos/telkom-sign.webp", "assets/logos/telkom-sign.webp", "image/webp", true],
   ["/assets/logos/telkom.png", "assets/logos/telkom.png", "image/png", true],
   ["/assets/logos/accelbyte.svg", "assets/logos/accelbyte.svg", "image/svg+xml", false],
   ["/assets/logos/airasia.webp", "assets/logos/airasia.webp", "image/webp", true],
   ["/assets/logos/lottiefiles.svg", "assets/logos/lottiefiles.svg", "image/svg+xml", false],
   ["/assets/logos/gag101.png", "assets/logos/gag101.png", "image/png", true],
+  ["/assets/logos/frontierra-studio.webp", "assets/logos/frontierra-studio.webp", "image/webp", true],
   ["/assets/logos/dotacaptain.webp", "assets/logos/dotacaptain.webp", "image/webp", true],
   ["/assets/media/wijayanto-portrait-bw.jpg", "assets/media/wijayanto-portrait-bw.jpg", "image/jpeg", true],
   ["/assets/objects/telkom-object.png", "assets/objects/telkom-object.png", "image/png", true],
@@ -45,6 +52,19 @@ const assetSpecs = [
 ];
 
 const assets = {};
+
+const paperTypes = {
+  webp: "image/webp",
+  jpg: "image/jpeg",
+  ttf: "font/ttf",
+  txt: "text/plain; charset=utf-8"
+};
+for (const name of await readdir(resolve(projectRoot, "assets/paper"))) {
+  const path = "assets/paper/" + name;
+  const type = paperTypes[name.split(".").pop()];
+  if (!type) throw new Error("Unknown paper asset type: " + name);
+  assetSpecs.push(["/" + path, path, type, !name.endsWith(".txt")]);
+}
 
 for (const [pathname, sourcePath, contentType, binary] of assetSpecs) {
   const file = await readFile(resolve(projectRoot, sourcePath));
